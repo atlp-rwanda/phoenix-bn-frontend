@@ -1,3 +1,6 @@
+![Node.js CI](https://github.com/atlp-rwanda/phoenix-bn-frontend/workflows/Node.js%20CI/badge.svg?branch=ch-test-travis-heroku)
+[![Coverage Status](https://coveralls.io/repos/github/atlp-rwanda/phoenix-bn-frontend/badge.svg?branch=ch-test-travis-heroku)](https://coveralls.io/github/atlp-rwanda/phoenix-bn-frontend?branch=ch-test-travis-heroku)
+[![Maintainability](https://api.codeclimate.com/v1/badges/fe1b5b211fbc94edb454/maintainability)](https://codeclimate.com/github/atlp-rwanda/phoenix-bn-frontend/maintainability)
 # Barefoot Nomad (Frontend)
 
 > Barefoot Nomad - Making company global travel and accommodation easy and convenient.
