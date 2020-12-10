@@ -4228,6 +4228,10 @@ video {
   background-image: url('../images/bg-img.png');
 }
 
+.bg-footer-bg {
+  background-image: url('../images/footer.png');
+}
+
 .from-transparent {
   --tw-gradient-from: transparent;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0));
@@ -34852,6 +34856,10 @@ video {
     background-image: url('../images/bg-img.png');
   }
 
+  .sm\:bg-footer-bg {
+    background-image: url('../images/footer.png');
+  }
+
   .sm\:from-transparent {
     --tw-gradient-from: transparent;
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0));
@@ -65390,6 +65398,10 @@ video {
 
   .md\:bg-landing-bg {
     background-image: url('../images/bg-img.png');
+  }
+
+  .md\:bg-footer-bg {
+    background-image: url('../images/footer.png');
   }
 
   .md\:from-transparent {
@@ -95932,6 +95944,10 @@ video {
     background-image: url('../images/bg-img.png');
   }
 
+  .lg\:bg-footer-bg {
+    background-image: url('../images/footer.png');
+  }
+
   .lg\:from-transparent {
     --tw-gradient-from: transparent;
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0));
@@ -126472,6 +126488,10 @@ video {
     background-image: url('../images/bg-img.png');
   }
 
+  .xl\:bg-footer-bg {
+    background-image: url('../images/footer.png');
+  }
+
   .xl\:from-transparent {
     --tw-gradient-from: transparent;
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0));
@@ -157010,6 +157030,10 @@ video {
 
   .\32xl\:bg-landing-bg {
     background-image: url('../images/bg-img.png');
+  }
+
+  .\32xl\:bg-footer-bg {
+    background-image: url('../images/footer.png');
   }
 
   .\32xl\:from-transparent {

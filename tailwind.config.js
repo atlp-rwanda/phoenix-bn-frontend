@@ -5,7 +5,9 @@ module.exports = {
     extend: {
       backgroundImage:theme=>({
 
-        'landing-bg':"url('../images/bg-img.png')"
+        'landing-bg':"url('../images/bg-img.png')",
+        'footer-bg':"url('../images/footer.png')",
+
       })
       
     },
