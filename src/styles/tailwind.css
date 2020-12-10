@@ -3,6 +3,6 @@
 @tailwind utilities;
 @font-face {  
     font-family: 'Sansation';
-    src:url(./fonts/Sansation_Bold_Italic.ttf);
+    src:url(./fonts/Sansation_Light.ttf);
     }
 
