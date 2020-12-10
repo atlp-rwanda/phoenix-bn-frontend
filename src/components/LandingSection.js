@@ -1,18 +1,29 @@
 import React from 'react';
+import HouseImage from '../images/Rectangle 1.png'
+import Curve from '../images/curved.png'
 const Landing=()=>{
    return(
-       <div>
-    <div className="bg-landing-bg w-full h-screen relative bg-no-repeat bg-cover lg:bg-center p-6 bg-top-right">
-
-   
-    <div className="max-w-5xl max-auto lg:py-32 py-2">
-    <h2 className="lg:text-5xl text-4xl m-4 font-semibold text-gray-200 leading-none">Book early save more</h2>
-    <p className="lg:text-2xl text-xl font-semibold text-gray-100 mt-10 leading-none">Welcome to Barefoot Nomad Making company global travel<br />  and accommodation easy and convenient 
-     It also includes <br /> interaactives travels forums  was an early <br />
-     adopter of user generated content.</p>
-    </div>
-    </div>
-    </div>
+   <div className='w-screen h-screen'>
+      <div className= 'w-full h-screen relative'>
+         <img src={HouseImage} className='h-full w-full' />
+         <div className='absolute w-full h-full top-0 left-0 flex items-center'>
+            <div id='curve' className='sm:w-8/12 h-full relative'>
+               <img src={Curve} className='h-max-97 w-full' />
+               <div id='text-content' className='absolute space-y-6 flex pl-5 sm:pl-20 font-Sansation font-bold text-white  left-0 border-box top-0 h-max-97 w-full items-center'>
+                 <div className='space-y-8'>
+                 <p className='text-4xl'>Book early save more</p>
+                  <div className='relative'>
+                     <p>Bare foot is a travel and accomodattion website for nomads.</p>
+                     <p>We make your travel experience more woenderful with our incomperable services.</p>
+                  </div>
+                 </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div>
+      </div>
+   </div>
    );
 }
 export default Landing;

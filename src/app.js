@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import landingPage from './components/landingPage';
+import landingPage from './pages/LandingPage';
 import { Provider } from 'react-redux'
 import store from './store'
 const App = () => {
