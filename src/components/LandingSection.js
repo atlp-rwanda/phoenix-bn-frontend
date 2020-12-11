@@ -11,7 +11,7 @@ const Landing=()=>{
                <img src={Curve} className='h-max-97 w-full' />
                <div id='text-content' className='absolute space-y-6 flex pl-5 sm:pl-20 font-Sansation font-bold text-white  left-0 border-box top-0 h-max-97 w-full items-center'>
                  <div className='space-y-8'>
-                 <p className='text-4xl'>Book early save more</p>
+                 <p className='text-xl sm:text-2xl md:text-4xl'>Book early save more</p>
                   <div className='relative'>
                      <p>Bare foot is a travel and accomodattion website for nomads.</p>
                      <p>We make your travel experience more woenderful with our incomperable services.</p>
