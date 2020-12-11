@@ -4,8 +4,9 @@ module.exports = {
   theme: {
     
     extend: {
-      backgroundImage: theme => ({
-        'landing-bg': "url('../images/bg-img.png')"
+      backgroundImage:theme=>({
+        'footer-bg':"url('../images/footer.png')"
+
       }),
       width: {
         'topNav':'94.66%'
