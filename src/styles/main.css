@@ -4254,10 +4254,6 @@ video {
   background-image: linear-gradient(to top left, var(--tw-gradient-stops));
 }
 
-.bg-landing-bg {
-  background-image: url('../images/bg-img.png');
-}
-
 .bg-footer-bg {
   background-image: url('../images/footer.png');
 }
@@ -35066,10 +35062,6 @@ video {
     background-image: linear-gradient(to top left, var(--tw-gradient-stops));
   }
 
-  .sm\:bg-landing-bg {
-    background-image: url('../images/bg-img.png');
-  }
-
   .sm\:bg-footer-bg {
     background-image: url('../images/footer.png');
   }
@@ -65792,10 +65784,6 @@ video {
 
   .md\:bg-gradient-to-tl {
     background-image: linear-gradient(to top left, var(--tw-gradient-stops));
-  }
-
-  .md\:bg-landing-bg {
-    background-image: url('../images/bg-img.png');
   }
 
   .md\:bg-footer-bg {
@@ -96522,10 +96510,6 @@ video {
     background-image: linear-gradient(to top left, var(--tw-gradient-stops));
   }
 
-  .lg\:bg-landing-bg {
-    background-image: url('../images/bg-img.png');
-  }
-
   .lg\:bg-footer-bg {
     background-image: url('../images/footer.png');
   }
@@ -127250,10 +127234,6 @@ video {
     background-image: linear-gradient(to top left, var(--tw-gradient-stops));
   }
 
-  .xl\:bg-landing-bg {
-    background-image: url('../images/bg-img.png');
-  }
-
   .xl\:bg-footer-bg {
     background-image: url('../images/footer.png');
   }
@@ -157976,10 +157956,6 @@ video {
 
   .\32xl\:bg-gradient-to-tl {
     background-image: linear-gradient(to top left, var(--tw-gradient-stops));
-  }
-
-  .\32xl\:bg-landing-bg {
-    background-image: url('../images/bg-img.png');
   }
 
   .\32xl\:bg-footer-bg {
