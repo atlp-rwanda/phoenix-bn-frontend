@@ -15,8 +15,8 @@ const Landing=()=>{
                  <p className='text-4xl'>Book early save more</p>
                  
                   <div className='relative'>
-                     <p className="text-xl">Bare foot is a travel and accomodattion website for nomads.</p>
-                     <p className="text-xl">We make your travel experience more wonderful with our incomperable services</p>
+                     <p className="text-lg">Bare foot is a travel and accomodattion website for nomads.</p>
+                     <p className="text-lg">We make your travel experience more wonderful with our incomperable services</p>
                   </div>
                  </div>
                </div>
