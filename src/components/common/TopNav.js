@@ -18,7 +18,7 @@ render(){
                 <div className="hidden lg:flex  lg:items-center bg-white lg:w-auto w-full">
         
                 <section> 
-                <ul className="lg:flex items-center justify-between text-base text-black font-bold pt-4 lg:pt-0 ">
+                <ul className="lg:flex items-center justify-between text-base text-black font-bold font-Sansation pt-4 lg:pt-0 ">
                 <li className="hover:bg-gray-200"> <Link to='/about' className="py-1 px-5">About</Link></li>
                 <li className="hover:bg-gray-200"> <Link to='/login' className="py-1 px-5">Accomodation</Link></li>
                 <li className="hover:bg-gray-200"> <Link to='/help' className="py-1 px-5">Help</Link></li>
