@@ -1,14 +1,20 @@
-
+require('dotenv/config.js');
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require('copy-webpack-plugin');
 
+const { API_URL } = process.env;
+
 module.exports = {
     entry: './src/index.js',
+    target: 'web',
     output: {
+        publicPath: '/',
         path: path.join(__dirname, '/dist'),
         filename: 'index.js'
     },
+    
     module: {
         rules: [
             {
@@ -29,7 +35,7 @@ module.exports = {
                 use: [{
                     loader: 'url-loader',
                     options: {
-                        limit:false
+                        limit: false
                     }
                 }]
             },
@@ -42,16 +48,26 @@ module.exports = {
                         outputPath: 'fonts/'
                     }
                 }]
-    }]
-},
+            }]
+    },
+    mode: process.env.NODE_ENV || 'development',
+    devServer: {
+        publicPath: '/',
+        historyApiFallback: true,
+        contentBase: './',
+        hot: true
+    },
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html'
         }),
         new CopyPlugin({
             patterns: [
-              { from: "./src/images/", to: "./images/" }
+                { from: "./src/images/", to: "./images/" }
             ],
+        }),
+        new webpack.DefinePlugin({
+            'process.env': { API_URL: JSON.stringify(API_URL) },
           }),
     ]
 }
