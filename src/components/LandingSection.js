@@ -1,6 +1,5 @@
 import React from 'react';
 import HouseImage from '../images/Rectangle1.png';
-import Skeleton from "react-loading-skeleton";
 import Curve from '../images/curved.png'
 const Landing=()=>{
    return(

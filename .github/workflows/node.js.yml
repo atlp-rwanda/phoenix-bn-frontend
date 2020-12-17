@@ -5,9 +5,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ ch-test-travis-heroku ]
+    branches: [ develop ]
   pull_request:
-    branches: [ ch-test-travis-heroku ]
+    branches: [ develop ]
 jobs:
   build:
 

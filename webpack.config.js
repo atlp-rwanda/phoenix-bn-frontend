@@ -1,11 +1,14 @@
-
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require('copy-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
     entry: './src/index.js',
+    target: 'web',
     output: {
+        publicPath: '/',
         path: path.join(__dirname, '/dist'),
         filename: 'index.js'
     },
@@ -44,6 +47,12 @@ module.exports = {
                 }]
     }]
 },
+devServer: {
+    publicPath:'/',
+    historyApiFallback: true,
+    contentBase: './',
+    hot: true
+ },
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html'
@@ -53,5 +62,10 @@ module.exports = {
               { from: "./src/images/", to: "./images/" }
             ],
           }),
+          new webpack.EnvironmentPlugin({
+            NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
+            DEBUG: false
+          })
+         
     ]
 }
