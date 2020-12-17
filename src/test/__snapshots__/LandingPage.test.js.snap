@@ -2,7 +2,7 @@
 
 exports[`Testing Shared Shared Components Landing page content should be rendered 1`] = `
 <div
-  className="absolute w-full h-auto z-10"
+  className="relative w-full h-auto z-10"
 >
   <nav
     className="flex justify-between bg-white w-full md:w-topNav  p-3 md:py-3 md:pl-4  md:pr-28 h-full md:rounded-br-full"
@@ -18,14 +18,143 @@ exports[`Testing Shared Shared Components Landing page content should be rendere
         BareFoot
       </span>
     </a>
-    <a
-      className="bg-mainGreen py-1 px-5"
-      href="/login"
+    <button
+      className="lg:hidden block"
       onClick={[Function]}
     >
-      Login
-    </a>
+      <svg
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h24v24H0z"
+          fill="none"
+        />
+        <path
+          d="M3 15h18v-2H3v2zm0 4h18v-2H3v2zm0-8h18V9H3v2zm0-6v2h18V5H3z"
+        />
+      </svg>
+    </button>
+    <div
+      className="hidden lg:flex  lg:items-center bg-white lg:w-auto w-full"
+    >
+      <section>
+        <ul
+          className="lg:flex items-center justify-between text-base text-black font-bold font-Sansation pt-4 lg:pt-0 "
+        >
+          <li
+            className="hover:bg-gray-200"
+          >
+             
+            <a
+              className="py-1 px-5"
+              href="/about"
+              onClick={[Function]}
+            >
+              About
+            </a>
+          </li>
+          <li
+            className="hover:bg-gray-200"
+          >
+             
+            <a
+              className="py-1 px-5"
+              href="/login"
+              onClick={[Function]}
+            >
+              Accomodation
+            </a>
+          </li>
+          <li
+            className="hover:bg-gray-200"
+          >
+             
+            <a
+              className="py-1 px-5"
+              href="/help"
+              onClick={[Function]}
+            >
+              Help
+            </a>
+          </li>
+          <li
+            className="hover:bg-gray-200"
+          >
+             
+            <a
+              className="bg-mainGreen py-1 px-5"
+              href="/login"
+              onClick={[Function]}
+            >
+              Login
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
   </nav>
+  <div
+    className="hidden text-center z-0 lg:items-center bg-white lg:w-auto"
+    id="menu"
+  >
+    <section>
+      <ul
+        className="lg:hidden items-center justify-between text-base text-black font-bold pt-4 lg:pt-0 mb-4"
+      >
+        <li
+          className="hover:bg-gray-200"
+        >
+           
+          <a
+            className="py-1 px-5"
+            href="/about"
+            onClick={[Function]}
+          >
+            About
+          </a>
+        </li>
+        <li
+          className="hover:bg-gray-200"
+        >
+           
+          <a
+            className="py-1 px-5"
+            href="/login"
+            onClick={[Function]}
+          >
+            Accomodation
+          </a>
+        </li>
+        <li
+          className="hover:bg-gray-200"
+        >
+           
+          <a
+            className="py-1 px-5"
+            href="/help"
+            onClick={[Function]}
+          >
+            help
+          </a>
+        </li>
+        <li
+          className="hover:bg-gray-200"
+        >
+           
+          <a
+            className="bg-mainGreen py-1 px-5"
+            href="/login"
+            onClick={[Function]}
+          >
+            Login
+          </a>
+        </li>
+      </ul>
+    </section>
+  </div>
 </div>
 `;
 
@@ -38,7 +167,11 @@ exports[`Testing Shared Shared Components Landing page content should match snap
   >
     <img
       className="h-full w-full"
-      src="../images/Rectangle1.png"
+      src={
+        Object {
+          "process": [Function],
+        }
+      }
     />
     <div
       className="absolute w-full h-full top-0 left-0 flex items-center"
@@ -49,28 +182,36 @@ exports[`Testing Shared Shared Components Landing page content should match snap
       >
         <img
           className="h-max-97 w-full"
-          src="../images/curved.png"
+          src={
+            Object {
+              "process": [Function],
+            }
+          }
         />
         <div
-          className="absolute space-y-6 flex pl-5 sm:pl-20 font-Sansation font-bold text-white  left-0 border-box top-0 h-max-97 w-full items-center"
+          className="absolute space-y-6 flex pl-5 sm:pl-20 font-Sansation font-bold text-white  left-0 border-box top-0 h-max-97 w-full mt-52"
           id="text-content"
         >
           <div
-            className="space-y-8"
+            className="space-y-2"
           >
             <p
-              className="text-xl sm:text-2xl md:text-4xl"
+              className="text-4xl"
             >
               Book early save more
             </p>
             <div
               className="relative"
             >
-              <p>
+              <p
+                className="text-lg"
+              >
                 Bare foot is a travel and accomodattion website for nomads.
               </p>
-              <p>
-                We make your travel experience more woenderful with our incomperable services.
+              <p
+                className="text-lg"
+              >
+                We make your travel experience more wonderful with our incomperable services
               </p>
             </div>
           </div>
@@ -84,7 +225,7 @@ exports[`Testing Shared Shared Components Landing page content should match snap
 
 exports[`Testing Shared Shared Components Navbar should render 1`] = `
 <div
-  className="absolute w-full h-auto z-10"
+  className="relative w-full h-auto z-10"
 >
   <nav
     className="flex justify-between bg-white w-full md:w-topNav  p-3 md:py-3 md:pl-4  md:pr-28 h-full md:rounded-br-full"
@@ -100,20 +241,149 @@ exports[`Testing Shared Shared Components Navbar should render 1`] = `
         BareFoot
       </span>
     </a>
-    <a
-      className="bg-mainGreen py-1 px-5"
-      href="/login"
+    <button
+      className="lg:hidden block"
       onClick={[Function]}
     >
-      Login
-    </a>
+      <svg
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h24v24H0z"
+          fill="none"
+        />
+        <path
+          d="M3 15h18v-2H3v2zm0 4h18v-2H3v2zm0-8h18V9H3v2zm0-6v2h18V5H3z"
+        />
+      </svg>
+    </button>
+    <div
+      className="hidden lg:flex  lg:items-center bg-white lg:w-auto w-full"
+    >
+      <section>
+        <ul
+          className="lg:flex items-center justify-between text-base text-black font-bold font-Sansation pt-4 lg:pt-0 "
+        >
+          <li
+            className="hover:bg-gray-200"
+          >
+             
+            <a
+              className="py-1 px-5"
+              href="/about"
+              onClick={[Function]}
+            >
+              About
+            </a>
+          </li>
+          <li
+            className="hover:bg-gray-200"
+          >
+             
+            <a
+              className="py-1 px-5"
+              href="/login"
+              onClick={[Function]}
+            >
+              Accomodation
+            </a>
+          </li>
+          <li
+            className="hover:bg-gray-200"
+          >
+             
+            <a
+              className="py-1 px-5"
+              href="/help"
+              onClick={[Function]}
+            >
+              Help
+            </a>
+          </li>
+          <li
+            className="hover:bg-gray-200"
+          >
+             
+            <a
+              className="bg-mainGreen py-1 px-5"
+              href="/login"
+              onClick={[Function]}
+            >
+              Login
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
   </nav>
+  <div
+    className="hidden text-center z-0 lg:items-center bg-white lg:w-auto"
+    id="menu"
+  >
+    <section>
+      <ul
+        className="lg:hidden items-center justify-between text-base text-black font-bold pt-4 lg:pt-0 mb-4"
+      >
+        <li
+          className="hover:bg-gray-200"
+        >
+           
+          <a
+            className="py-1 px-5"
+            href="/about"
+            onClick={[Function]}
+          >
+            About
+          </a>
+        </li>
+        <li
+          className="hover:bg-gray-200"
+        >
+           
+          <a
+            className="py-1 px-5"
+            href="/login"
+            onClick={[Function]}
+          >
+            Accomodation
+          </a>
+        </li>
+        <li
+          className="hover:bg-gray-200"
+        >
+           
+          <a
+            className="py-1 px-5"
+            href="/help"
+            onClick={[Function]}
+          >
+            help
+          </a>
+        </li>
+        <li
+          className="hover:bg-gray-200"
+        >
+           
+          <a
+            className="bg-mainGreen py-1 px-5"
+            href="/login"
+            onClick={[Function]}
+          >
+            Login
+          </a>
+        </li>
+      </ul>
+    </section>
+  </div>
 </div>
 `;
 
 exports[`Testing Shared Shared Components footer should render 1`] = `
 <footer
-  className="bg-footer-bg relative bg-no-repeat lg:bg-center p-0 mb-0 bg-top-right"
+  className="bg-footer-bg relative bg-no-repeat bg-cover lg:bg-center p-0 mb-0 bg-top-right"
 >
   <div
     className="flex-1 max-w-8xl max-auto p-10"
@@ -128,12 +398,12 @@ exports[`Testing Shared Shared Components footer should render 1`] = `
           className="max-h-full"
         >
           <h1
-            className="text-gray-200 font-bold text-2xl font-Sansation"
+            className="text-gray-200 font-bold text-4xl font-Sansation"
           >
             BareFoot
           </h1>
           <p
-            className="max-h-full p-1 pt-5 mb-2  text-gray-200 font-bold md:text-xl font-Sansation"
+            className="max-h-full p-1 pt-5 mb-2  text-gray-200 font-bold md:text-lg font-Sansation"
           >
             Barefoot is a grobal travel and accomodation website for nomads we make your travel experience more wonderful with our incomperable services.
           </p>
@@ -146,12 +416,12 @@ exports[`Testing Shared Shared Components footer should render 1`] = `
           className="max-h-full"
         >
           <h1
-            className="text-gray-200 font-bold text-2xl font-Sansation"
+            className="text-gray-200 font-bold text-4xl font-Sansation"
           >
             Contact
           </h1>
           <p
-            className="text-gray-200 pt-5 font-bold md:text-xl font-Sansation"
+            className="text-gray-200 pt-5 font-bold md:text-lg font-Sansation"
           >
             Barefoot customer services
             <br />
