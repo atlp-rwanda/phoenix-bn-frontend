@@ -1,8 +1,8 @@
-import { combineReducers } from 'redux'
-import counterReducer from './counter'
+import { combineReducers } from 'redux';
+import user from './auth.js';
 
 const combinedReducers = combineReducers({
-    counter:counterReducer
-})
+  user,
+});
 
 export default combinedReducers;
