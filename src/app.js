@@ -6,7 +6,8 @@ import helpPage from './pages/Help';
 import { Provider } from 'react-redux'
 import store from './store'
 import aboutPage from './pages/About';
-import signupPage from './pages/signup'
+import signupPage from './pages/signup';
+import signinPage from './pages/signin';
 import ProtectedRoute from './middlewares/navGaurd'
 import Dashboard from './pages/DashBoard'
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
                         <Route exact path='/help' component={helpPage} />
                         <Route exact path='/about' component={aboutPage} />
                         <Route exact path='/signup' component={signupPage} />
+                        <Route exact path='/login' component={signinPage} />
                         <Route exact path='/socialAuth/failed' component={socialAuth}/>
                         <Route exact path='/socialAuth/success/:token' component={socialAuth}/>
                         <ProtectedRoute allowedRoles={[1,2,3,4,5]}  path='/dashboard' component={Dashboard} />
