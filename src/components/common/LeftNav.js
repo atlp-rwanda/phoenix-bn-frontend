@@ -2,7 +2,7 @@ import React from 'react'
 import UserIcon from '../icon/user'
 import { useSelector} from 'react-redux'
 export default function LeftNav() {
-    const {userData} = useSelector(store=>store.user);
+    const {userData} = useSelector(store=>store.auth);
     return (
         <div>
             <div className='w-full'>

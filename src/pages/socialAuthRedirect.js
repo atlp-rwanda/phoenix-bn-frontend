@@ -4,7 +4,7 @@ import Footer from '../components/common/Footer'
 import { useParams } from 'react-router-dom'
 import { httpRequest } from './../helpers/httpRequest'
 import { useDispatch } from 'react-redux'
-import  { LOGIN }  from './../actions/actionTypes'
+import  { LOGINSUCESS }  from './../actions/actionTypes'
 
 const socialAuth =(props)=> {
     const params = useParams();
@@ -15,7 +15,7 @@ const socialAuth =(props)=> {
             const {response} = await httpRequest('get','users/me/'+atob(params.token),{});
             if(response){
                 const UserInfo = response.data.data;
-                dispatch({type:LOGIN,payload:UserInfo});
+                dispatch({type:LOGINSUCESS,payload:UserInfo});
                 localStorage.setItem('userInfo',JSON.stringify(response.data.data));
                 props.history.push('/dashboard')
             }

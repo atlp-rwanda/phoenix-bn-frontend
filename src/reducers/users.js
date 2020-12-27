@@ -1,15 +1,15 @@
-import { LOGIN} from '../actions/actionTypes'
+import { LOGINSUCESS} from '../actions/actionTypes'
 const initialState = {
-    loggedIn:false,
+    isLoggedIn:false,
     userData:{},
 };
 
  const users = (state = initialState, action) => {
      switch(action.type){
-         case LOGIN:
+         case LOGINSUCESS:
             return state={
                 ...state,
-                loggedIn:true,
+                isLoggedIn:true,
                 userData:action.payload
             }
      }

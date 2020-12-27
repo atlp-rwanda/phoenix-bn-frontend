@@ -8,8 +8,8 @@
     "start": "npm run build && node server.js",
     "build": "webpack --mode production",
     "test": "jest -u",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage --colors",
+    "test:watch": "jest --watch -u",
+    "test:coverage": "jest --coverage --colors -u --detectOpenHandles",
     "build:css": "tailwind build ./src/styles/tailwind.css -o ./src/styles/main.css"
   },
   "repository": {
@@ -31,7 +31,6 @@
     "axios": "^0.21.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-preset-stage-0": "^6.24.1",
-    "dotenv": "^8.2.0",
     "dotenv-webpack": "^6.0.0",
     "express": "^4.17.1",
     "express-favicon": "^2.0.1",
