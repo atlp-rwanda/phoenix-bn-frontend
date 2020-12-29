@@ -1,3 +1,4 @@
 dist
 tailwind.config.js
 counter.js
+postcss.config.js

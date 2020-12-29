@@ -2,13 +2,11 @@
     "env": {
         "browser": true,
         "es2021": true,
-        "jest": true,
-        "amd": true,
-        "node": true
+        "jest": true
     },
     "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "airbnb"
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -21,13 +19,13 @@
         "react"
     ],
     "rules": {
-    "react/no-unescaped-entities": 0 
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "react/no-unescaped-entities": 0 ,
+        "max-len": ["error", { "code": 600 }]
     },
-    "parser":"babel-eslint",
-
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
-  }
+    "settings": {
+        "react": {
+          "version": "detect"
+        }
+      }
 }
