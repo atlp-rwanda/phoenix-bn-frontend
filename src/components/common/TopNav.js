@@ -15,7 +15,7 @@ class TopNav extends React.Component {
       <div className="absolute w-full h-auto z-10">
         <nav className="flex justify-between bg-white w-full md:w-topNav  p-3 md:py-3 md:pl-4  md:pr-28 h-full md:rounded-br-full">
           <Link to="/" className="block">
-            <span className="text-2xl text-black font-bold  font-Sansation italic">BareFoot</span>
+            <span className="text-2xl text-black font-bold  font-Sansation px-10 italic">BareFoot</span>
           </Link>
           <button
             type="button"
@@ -34,21 +34,21 @@ class TopNav extends React.Component {
 
             <section>
               <ul className="lg:flex items-center justify-between text-base text-black font-bold font-Sansation pt-4 lg:pt-0 ">
-                <li className="hover:bg-green-400">
+                <li>
                   {' '}
-                  <Link to="/about" className="py-1 px-5">About</Link>
+                  <Link to="/about" className="py-1 px-5 hover:bg-gray-200 rounded-full">About</Link>
                 </li>
-                <li className="hover:bg-green-400">
+                <li>
                   {' '}
-                  <Link to="/login" className="py-1 px-5">Accomodation</Link>
+                  <Link to="/login" className="py-1 px-5 hover:bg-gray-200 rounded-full">Accomodation</Link>
                 </li>
-                <li className="hover:bg-green-400">
+                <li>
                   {' '}
-                  <Link to="/help" className="py-1 px-5">Help</Link>
+                  <Link to="/help" className="py-1 px-5 hover:bg-gray-200 rounded-full">Help</Link>
                 </li>
-                <li className="hover:bg-gray-200">
+                <li>
                   {' '}
-                  <Link to="/login" className="bg-green-400 rounded-md py-1 px-5">
+                  <Link to="/login" className="inline-block px-6 py-2 text-sm font-bold leading-6 text-center text-white uppercase transition bg-green-500 rounded-full shadow ripple hover:shadow-lg hover:bg-green-600 focus:outline-none">
                     Login
                   </Link>
                 </li>
@@ -76,7 +76,7 @@ class TopNav extends React.Component {
               </li>
               <li className="hover:bg-gray-200">
                 {' '}
-                <Link to="/login" className="bg-mainGreen py-1 px-5">
+                <Link to="/login" className="py-1 px-5 bg-green-500 rounded-full">
                   Login
                 </Link>
               </li>

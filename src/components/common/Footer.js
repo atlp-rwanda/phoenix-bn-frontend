@@ -25,8 +25,8 @@ const Footer = () => (
               </p>
               <div className="flex mt-4">
                 <a href="https://twitter.com/BarefootCollege" aria-label="link"><ImTwitter className="text-white mr-4 text-2xl mb-5 hover:text-green-400" /></a>
-                <a href="https://web.facebook.com/groups/217860805077474" aria-label="link"><ImFacebook className="text-white mr-4 text-2xl mb-5 hover:text-green-400" /></a>
-                <a href="https://www.instagram.com/barefoot_nomad_/" aria-label="link"><ImInstagram className="text-white mr-4 text-2xl mb-5 hover:text-green-400" /></a>
+                <a href="https://web.facebook.com/groups/217860805077474" aria-label="link"><ImFacebook className="text-white mr-4 text-2xl mb-5 hover:text-green-500 " /></a>
+                <a href="https://www.instagram.com/barefoot_nomad_/" aria-label="link"><ImInstagram className="text-white mr-4 text-2xl mb-5 hover:text-green-500 " /></a>
               </div>
             </div>
           </li>

@@ -13,7 +13,7 @@ exports[`Testing Shared Shared Components Landing page content should be rendere
       onClick={[Function]}
     >
       <span
-        className="text-2xl text-black font-bold  font-Sansation italic"
+        className="text-2xl text-black font-bold  font-Sansation px-10 italic"
       >
         BareFoot
       </span>
@@ -46,48 +46,40 @@ exports[`Testing Shared Shared Components Landing page content should be rendere
         <ul
           className="lg:flex items-center justify-between text-base text-black font-bold font-Sansation pt-4 lg:pt-0 "
         >
-          <li
-            className="hover:bg-green-400"
-          >
+          <li>
              
             <a
-              className="py-1 px-5"
+              className="py-1 px-5 hover:bg-gray-200 rounded-full"
               href="/about"
               onClick={[Function]}
             >
               About
             </a>
           </li>
-          <li
-            className="hover:bg-green-400"
-          >
+          <li>
              
             <a
-              className="py-1 px-5"
+              className="py-1 px-5 hover:bg-gray-200 rounded-full"
               href="/login"
               onClick={[Function]}
             >
               Accomodation
             </a>
           </li>
-          <li
-            className="hover:bg-green-400"
-          >
+          <li>
              
             <a
-              className="py-1 px-5"
+              className="py-1 px-5 hover:bg-gray-200 rounded-full"
               href="/help"
               onClick={[Function]}
             >
               Help
             </a>
           </li>
-          <li
-            className="hover:bg-gray-200"
-          >
+          <li>
              
             <a
-              className="bg-green-400 rounded-md py-1 px-5"
+              className="inline-block px-6 py-2 text-sm font-bold leading-6 text-center text-white uppercase transition bg-green-500 rounded-full shadow ripple hover:shadow-lg hover:bg-green-600 focus:outline-none"
               href="/login"
               onClick={[Function]}
             >
@@ -148,7 +140,7 @@ exports[`Testing Shared Shared Components Landing page content should be rendere
         >
            
           <a
-            className="bg-mainGreen py-1 px-5"
+            className="py-1 px-5 bg-green-500 rounded-full"
             href="/login"
             onClick={[Function]}
           >
@@ -245,7 +237,7 @@ exports[`Testing Shared Shared Components footer should render 1`] = `
               href="https://web.facebook.com/groups/217860805077474"
             >
               <svg
-                className="text-white mr-4 text-2xl mb-5 hover:text-green-400"
+                className="text-white mr-4 text-2xl mb-5 hover:text-green-500 "
                 fill="currentColor"
                 height="1em"
                 stroke="currentColor"
@@ -270,7 +262,7 @@ exports[`Testing Shared Shared Components footer should render 1`] = `
               href="https://www.instagram.com/barefoot_nomad_/"
             >
               <svg
-                className="text-white mr-4 text-2xl mb-5 hover:text-green-400"
+                className="text-white mr-4 text-2xl mb-5 hover:text-green-500 "
                 fill="currentColor"
                 height="1em"
                 stroke="currentColor"
