@@ -33,7 +33,7 @@ class TopNav extends React.Component {
           <div className="hidden lg:flex  lg:items-center bg-white lg:w-auto w-full">
 
             <section>
-              <ul className="lg:flex items-center justify-between text-base text-black font-bold font-Sansation pt-4 lg:pt-0 ">
+              <ul className="lg:flex items-center justify-between text-base text-black font-Sansation pt-4 lg:pt-0 ">
                 <li>
                   {' '}
                   <Link to="/about" className="py-1 px-5 hover:bg-gray-200 rounded-full">About</Link>
