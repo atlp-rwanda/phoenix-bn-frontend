@@ -8,6 +8,9 @@ on:
     branches: [ ch-test-travis-heroku ]
   pull_request:
     branches: [ ch-test-travis-heroku ]
+    branches: [ develop ]
+  pull_request:
+    branches: [ develop ]
 jobs:
   build:
 

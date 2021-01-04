@@ -1,4 +1,3 @@
-// server.js
 const express = require('express');
 const path = require('path');
 
@@ -15,3 +14,4 @@ app.listen(port, () => {
   // eslint-disable-next-line no-console
   console.log(`Server is Running on Port ${port} ...`);
 });
+
