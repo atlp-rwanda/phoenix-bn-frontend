@@ -13,7 +13,7 @@ exports[`Testing Shared Shared Components Landing page content should be rendere
       onClick={[Function]}
     >
       <span
-        className="text-2xl text-black font-bold  font-Sansation px-10 italic"
+        className="text-2xl text-black font-bold  font-Sansation lg:pl-12 italic"
       >
         BareFoot
       </span>
@@ -44,7 +44,7 @@ exports[`Testing Shared Shared Components Landing page content should be rendere
     >
       <section>
         <ul
-          className="lg:flex items-center justify-between text-base text-black font-bold font-Sansation pt-4 lg:pt-0 "
+          className="lg:flex items-center justify-between text-base text-black font-Sansation pt-4 lg:pt-0 "
         >
           <li>
              
@@ -79,7 +79,7 @@ exports[`Testing Shared Shared Components Landing page content should be rendere
           <li>
              
             <a
-              className="inline-block px-6 py-2 text-sm font-bold leading-6 text-center text-white uppercase transition bg-green-500 rounded-full shadow ripple hover:shadow-lg hover:bg-green-600 focus:outline-none"
+              className="inline-block px-6 py-2 text-sm font-bold leading-6 text-center text-white uppercase transition bg-green-400 rounded-full shadow ripple hover:shadow-lg hover:bg-green-500 focus:outline-none"
               href="/login"
               onClick={[Function]}
             >

@@ -15,7 +15,7 @@ class TopNav extends React.Component {
       <div className="absolute w-full h-auto z-10">
         <nav className="flex justify-between bg-white w-full md:w-topNav  p-3 md:py-3 md:pl-4  md:pr-28 h-full md:rounded-br-full">
           <Link to="/" className="block">
-            <span className="text-2xl text-black font-bold  font-Sansation px-10 italic">BareFoot</span>
+            <span className="text-2xl text-black font-bold  font-Sansation lg:pl-12 italic">BareFoot</span>
           </Link>
           <button
             type="button"
@@ -48,7 +48,7 @@ class TopNav extends React.Component {
                 </li>
                 <li>
                   {' '}
-                  <Link to="/login" className="inline-block px-6 py-2 text-sm font-bold leading-6 text-center text-white uppercase transition bg-green-500 rounded-full shadow ripple hover:shadow-lg hover:bg-green-600 focus:outline-none">
+                  <Link to="/login" className="inline-block px-6 py-2 text-sm font-bold leading-6 text-center text-white uppercase transition bg-green-400 rounded-full shadow ripple hover:shadow-lg hover:bg-green-500 focus:outline-none">
                     Login
                   </Link>
                 </li>
