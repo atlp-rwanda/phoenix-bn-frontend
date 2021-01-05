@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import Navigation from '../components/common/TopNav';
 import Footer from '../components/common/Footer';
 import { httpRequest } from '../helpers/httpRequest';
-import { logUserIn } from '../actions/auth.js';
+import { registerUser } from '../actions/auth';
 
 const socialAuth = (props) => {
   const params = useParams();
@@ -13,7 +13,7 @@ const socialAuth = (props) => {
       const { response } = await httpRequest('get', `users/me/${atob(params.token)}`, {});
       if (response) {
         const UserInfo = response.data.data;
-        logUserIn(UserInfo);
+        await registerUser(UserInfo);
         localStorage.setItem('userInfo', JSON.stringify(response.data.data));
         props.history.push('/dashboard');
       }
@@ -25,7 +25,7 @@ const socialAuth = (props) => {
         <Navigation />
         <div className="main p-4 py-36">
           <div className="mx-auto w-full text-center">
-            {action == 'verification' ? <p className="text-red-500">Your Account has been verified before</p> : <p className="text-red-500">Authentication failed</p>}
+            {action === 'verification' ? <p className="text-red-500">Your Account has been verified before</p> : <p className="text-green-500">Please wait while your account is being verified</p>}
           </div>
         </div>
         <Footer />

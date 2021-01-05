@@ -49,7 +49,7 @@ class AuthTopNav extends Component {
 }
 
 const mapStateToProps = state=>{
-    return { user:state.user.userData}
+    return { user:state.auth.userData}
 }
 
 export default connect(mapStateToProps)(AuthTopNav);

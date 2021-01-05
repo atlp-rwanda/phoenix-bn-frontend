@@ -17,6 +17,7 @@ const aboutPage = () => (
           <li>We allow client to reserve a trip request</li>
           <li>We allow client to book an accommodation</li>
           <li>We plan safe trip by making sure that our client are receiving expected services</li>
+          <li>We provide bonus trip to our top three clients every year</li>
         </ul>
       </p>
     </div>
