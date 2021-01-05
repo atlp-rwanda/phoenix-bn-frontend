@@ -63,7 +63,6 @@ export class Signin extends Component {
                       <a to="/login"><u>Sign Up</u></a>
                     </p>
                     </div>
-
                 </div>
             </div>
         )
