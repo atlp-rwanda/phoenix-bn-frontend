@@ -19,6 +19,7 @@ module.exports = {
         formColor:'#9485F5',
         facebookColor:'#24138F',
         mainColor:'#472CEF',
+        overLayer:'rgba(0,0,0,0.4)'
         
       },
       
