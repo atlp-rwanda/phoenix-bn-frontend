@@ -1,9 +1,9 @@
-
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import BellIcon from '../icon/bell'
 import UserIcon from '../icon/user'
 import { connect } from 'react-redux'
+import ManagerNav from '../common/navs/manager'
 
 class AuthTopNav extends Component {
     state={
@@ -24,6 +24,10 @@ class AuthTopNav extends Component {
                     </span>
                     
                 </Link>
+                <div id='dynamic-nav'>
+                    {this.props.user.RoleId===3? <ManagerNav />:''}
+                </div>
+
                 <div>
                     <div className='flex space-x-6 mt-2'>
                         <div>
@@ -31,7 +35,7 @@ class AuthTopNav extends Component {
                         </div>
                         <div className='flex text-sm space-x-2 cursor-pointer' onClick={this.toggleMenu.bind(this)}>
                             <UserIcon />
-        <span className='text-white'>{this.props.user.firstName}</span>
+                            <span className='text-white'>{this.props.user.firstName}</span>
                         </div>
                     </div>
                 </div>
