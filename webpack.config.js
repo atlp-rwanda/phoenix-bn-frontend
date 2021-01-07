@@ -1,8 +1,11 @@
+require('dotenv/config.js');
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+
+const { API_URL } = process.env;
 
 module.exports = {
     entry: './src/index.js',
@@ -53,25 +56,29 @@ devServer: {
     contentBase: './',
     hot: true
  },
+   mode: process.env.NODE_ENV || 'development',
     plugins: [
-        new HtmlWebpackPlugin({
-            template: './src/index.html'
-        }),
-        new CopyPlugin({
+          new HtmlWebpackPlugin({
+            template: './src/index.html',
+          }),
+          new CopyPlugin({
             patterns: [
-              { from: "./src/images/", to: "./images/" }
+              { from: './src/images/', to: './images/' },
             ],
+          }),
+          new webpack.DefinePlugin({
+            'process.env': { API_URL: JSON.stringify(API_URL) },
           }),
           new webpack.EnvironmentPlugin({
             NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
             DEBUG: false
           }),
-            new Dotenv(
-                {
-                    path:'./.env',
-                    safe:true,
-                    systemvars: true
-                }
-            )    
+          new Dotenv(
+              {
+                  path:'./.env',
+                  safe:true,
+                  systemvars: true
+              }
+          )    
     ]
 }

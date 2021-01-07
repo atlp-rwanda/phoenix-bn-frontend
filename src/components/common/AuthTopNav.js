@@ -30,14 +30,14 @@ class AuthTopNav extends Component {
                         </div>
                         <div className='flex text-sm space-x-2 cursor-pointer' onClick={this.toggleMenu.bind(this)}>
                             <UserIcon />
-        <span className='text-white'>{this.props.user.firstName}</span>
+                            <span className='text-white'>{this.props.user.firstName}</span>
                         </div>
                     </div>
                 </div>
             </nav>
-            <div  className={'bg-formColor text-black cursor-pointer absolute right-6 py-2 px-4 '+this.state.visibility}>
+            <div  className={'bg-formColor text-white absolute right-6 py-2 px-4 '+this.state.visibility}>
                 <ul>
-                    <li>Profile</li>
+                    <li>Plofile</li>
                     <li>Logout</li>
                 </ul>
             </div>

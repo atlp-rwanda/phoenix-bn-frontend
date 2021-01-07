@@ -10,6 +10,7 @@ import { Signin } from '../components/auth/signin';
 import TextInput from '../components/form/TextInput';
 
 import TopNav from '../components/common/AuthTopNav';
+import TopLeftNav from '../components/common/TopLeftNav';
 import Dashboard from '../pages/DashBoard';
 import About from '../pages/About';
 import Help from '../pages/Help';
@@ -72,11 +73,11 @@ describe("handleInput", () => {
       expect(wrapper).toMatchSnapshot();
     })
     it('About should render correctly ',()=>{
-      const wrapper = renderer.create(<Router><About/></Router>).toJSON();
+      const wrapper = renderer.create(<Provider store={store}><Router><About /></Router></Provider>).toJSON();
       expect(wrapper).toMatchSnapshot();
     })
     it('Help should render correctly ',()=>{
-      const wrapper = renderer.create(<Router><Help/></Router>).toJSON();
+      const wrapper = renderer.create(<Provider store={store}><Router><Help/></Router></Provider>).toJSON();
       expect(wrapper).toMatchSnapshot();
     })
     it('Social Auth Redirect should render correctly ',()=>{
@@ -107,4 +108,9 @@ describe("handleInput", () => {
       wrapper.find('form').simulate('submit');
       expect(wrapper.state().formErrors).to.have.length(1);
     });
+    if('Top Left Nav should render correclty',()=>{
+      const wrapper = renderer.create(<Provider store={store}><Router><TopLeftNav /></Router></Provider>).toJSON();
+      expect(wrapper).toMatchSnapshot();
+    });
   })
+

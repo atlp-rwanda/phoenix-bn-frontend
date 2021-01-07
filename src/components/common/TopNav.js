@@ -1,13 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { connect } from 'react-redux';
+import TopLeftNav from '../common/TopLeftNav';
 class TopNav extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+    state = {
       isHidden: true,
     };
-  }
 
   render() {
     const { isHidden } = this.state;
@@ -48,9 +46,12 @@ class TopNav extends React.Component {
                 </li>
                 <li>
                   {' '}
-                  <Link to="/login" className="inline-block px-6 py-2 text-sm font-bold leading-6 text-center text-white uppercase transition bg-green-400 rounded-full shadow ripple hover:shadow-lg hover:bg-green-500 focus:outline-none">
+                  {this.props.auth.isLoggedIn?
+                    <TopLeftNav />:
+                    <Link to="/login" className="inline-block px-6 py-2 text-sm font-bold leading-6 text-center text-white uppercase transition bg-green-400 rounded-full shadow ripple hover:shadow-lg hover:bg-green-500 focus:outline-none">
                     Login
-                  </Link>
+                  </Link>}
+                  
                 </li>
               </ul>
 
@@ -76,9 +77,9 @@ class TopNav extends React.Component {
               </li>
               <li className="hover:bg-gray-200">
                 {' '}
-                <Link to="/login" className="py-1 px-5 bg-green-500 rounded-full">
+                {this.props.auth.isLoggedIn?' ':<Link to="/login" className="py-1 px-5 bg-green-500 rounded-full">
                   Login
-                </Link>
+                </Link>}
               </li>
 
             </ul>
@@ -91,4 +92,8 @@ class TopNav extends React.Component {
   }
 }
 
-export default TopNav;
+const mapStateToProps = (state)=>{
+  return {auth:state.auth};
+}
+
+export default connect(mapStateToProps)(TopNav);

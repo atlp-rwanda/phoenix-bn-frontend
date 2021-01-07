@@ -38,7 +38,7 @@ export class Signin extends Component {
             const UserInfo = response.data.data.displayData;
             this.props.dispatch({type:LOGINSUCESS,payload:UserInfo});
             localStorage.setItem('userInfo',JSON.stringify(UserInfo));
-            this.props.history.push('/dashboard');
+            this.props.history.push('/');
             
         }
     }
@@ -60,7 +60,7 @@ export class Signin extends Component {
                     <div>
                     <p id="paragraph" className="text-gray-700 text-center mt-1">
                         Don't Have Account? 
-                      <a to="/login"><u>Sign Up</u></a>
+                      <Link to="/signup"><u>Sign Up</u></Link>
                     </p>
                     </div>
                 </div>
