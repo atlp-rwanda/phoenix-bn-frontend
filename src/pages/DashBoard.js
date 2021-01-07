@@ -8,7 +8,6 @@ const DashBoard = () => (
         <TopNavigation />
       </div>
       <main className="mt-14 p-4 absolute full left-0 max-h-screen text-gray-700" />
-
     </div>
   </div>
 );

@@ -3,7 +3,8 @@ import { useParams } from 'react-router-dom';
 import Navigation from '../components/common/TopNav';
 import Footer from '../components/common/Footer';
 import { httpRequest } from '../helpers/httpRequest';
-import { registerUser } from '../actions/auth';
+import { authenticatedUser } from '../actions/auth';
+import { LOGINSUCESS} from '../actions/actionTypes';
 
 const socialAuth = (props) => {
   const params = useParams();
@@ -13,9 +14,9 @@ const socialAuth = (props) => {
       const { response } = await httpRequest('get', `users/me/${atob(params.token)}`, {});
       if (response) {
         const UserInfo = response.data.data;
-        await registerUser(UserInfo);
+        await authenticatedUser(UserInfo,LOGINSUCESS);
         localStorage.setItem('userInfo', JSON.stringify(response.data.data));
-        props.history.push('/dashboard');
+        props.history.push('/');
       }
     }
   });

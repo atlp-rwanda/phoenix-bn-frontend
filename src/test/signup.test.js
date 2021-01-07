@@ -10,10 +10,6 @@ import TopNav from '../components/common/AuthTopNav';
 import Dashboard from '../pages/DashBoard';
 
 describe('Testing Signup ', () => {
-  it('should render main app', () => {
-    const wrapper = renderer.create(<App />).toJSON();
-    expect(wrapper).toMatchSnapshot();
-  });
   it('should render dashbaord', () => {
     const wrapper = renderer.create(<Provider store={store}><Router><Dashboard /></Router></Provider>).toJSON();
     expect(wrapper).toMatchSnapshot();
@@ -25,7 +21,7 @@ describe('Testing Signup ', () => {
   });
 
   it('Should fillup and submit the signup form', () => {
-    const wrapper = mount(<Router><Signup /></Router>);
+    const wrapper = mount(<Provider store={store}><Router><Signup /></Router></Provider>);
     const firstName = wrapper.find('#firstName');
     firstName.simulate('change', { target: { name: 'firstName', value: 'umuhire' } });
     const lastName = wrapper.find('#lastName');

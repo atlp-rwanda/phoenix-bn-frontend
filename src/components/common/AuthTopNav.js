@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import BellIcon from '../icon/bell'
@@ -31,7 +30,7 @@ class AuthTopNav extends Component {
                         </div>
                         <div className='flex text-sm space-x-2 cursor-pointer' onClick={this.toggleMenu.bind(this)}>
                             <UserIcon />
-        <span className='text-white'>{this.props.user.firstName}</span>
+                            <span className='text-white'>{this.props.user.firstName}</span>
                         </div>
                     </div>
                 </div>
