@@ -1,3 +1,3 @@
-/* eslint no-multiple-empty-lines: [2, {max: 1}] */
-export const INCREMENT = 'INCREMENT';
-export const DECREMENT = 'DECREMENT';
+export const LOGIN = 'LOGIN';
+export const REGISTRATION_SUCCESS = 'REGISTRATION_SUCCESS';
+export const REGISTRATION_FAILED = 'REGISTRATION_FAILED';

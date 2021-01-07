@@ -15,7 +15,11 @@ module.exports = {
         'max-97':'97.66%'
       },
       colors: {
-        mainGreen:'#03CE75'
+        mainGreen:'#03CE75',
+        formColor:'#9485F5',
+        facebookColor:'#24138F',
+        mainColor:'#472CEF',
+        
       },
       
     },
