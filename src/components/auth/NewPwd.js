@@ -18,7 +18,7 @@ newPassword:{
  handleSubmit=async(e)=>{
      e.preventDefault();
 const token=atob(this.props.match.params.token);
-const {error,response} =await httpRequest('post',`/users/reset-password/${token}`,this.state.newPassword);
+const {error,response} =await httpRequest('put',`/users/reset-password/${token}`,this.state.newPassword);
 if (error) {
     this.setState({ loading: false });
   } else {
@@ -30,6 +30,7 @@ if (error) {
       },
     });
     this.setState({ loading: false });
+    this.props.history.push('/');
   }
 
 }
