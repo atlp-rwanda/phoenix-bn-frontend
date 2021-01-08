@@ -62,6 +62,7 @@ export class Signin extends Component {
                         Don't Have Account? 
                       <a to="/login"><u>Sign Up</u></a>
                     </p>
+                    <p className='text-formColor font-bold text-center pt-2'> <Link to="/reset">Get my password</Link></p>
                     </div>
                 </div>
             </div>
