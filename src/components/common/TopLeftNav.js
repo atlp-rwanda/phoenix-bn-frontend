@@ -2,28 +2,36 @@ import React, { Component } from 'react'
 import BellIcon from '../icon/bell'
 import UserIcon from '../icon/user'
 import { connect } from 'react-redux'
+import { httpRequest, successToast } from '../../helpers/httpRequest'
 import { authenticatedUser } from '../../actions/auth'
+import { LOGOUT_SUCCESS } from '../../actions/actionTypes'
 
 class TopLeftNav extends Component {
-    state={
+    constructor() {
+        super()
+        this.state = {
     visibility:'hidden',
     isLoggedIn:false
-
-    }
+    }}
     toggleMenu(){
         const prop= (this.state.visibility=='hidden')? 'block':'hidden';
         this.setState({...this.state,visibility:prop})
 
     }
 
-    handleLogout=(e)=>{
+    handleLogout=async(e)=>{
         e.preventDefault()
-        this.props.dispatch({
-          type: 'LOGOUT_SUCCESS',
-          payload: { isLoggedIn:this.state.isLoggedIn}
-        })
-    
-        this.setState({ postId: this.state.postId + 1 })
+        const { error, response } = await httpRequest('post', '/users/logout', this.state.userData);
+        if (error) {
+            return this.setState({ isLoggedIn: false })
+        } else {
+            successToast(response.data.message);
+            this.props.dispatch({type:LOGOUT_SUCCESS,payload:' '});
+            localStorage.removeItem('userInfo');
+            this.props.history.push('/');
+            
+        }
+       
     }
     
     render() {

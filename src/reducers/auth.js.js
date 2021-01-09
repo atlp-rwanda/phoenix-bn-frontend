@@ -23,7 +23,7 @@ const users = (state = initialState, action) => {
       return state = {
         ...state,
         isLoggedIn: false,
-        userData: action.payload,
+        userData:{}
       };
   }
   return state;

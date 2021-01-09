@@ -35,7 +35,7 @@ export class Signin extends Component {
             return this.setState({ loading: false })
         } else {
             successToast(response.data.message);
-            const UserInfo = response.data.data.displayData;
+            const UserInfo = response.data.data;
             this.props.dispatch({type:LOGINSUCESS,payload:UserInfo});
             localStorage.setItem('userInfo',JSON.stringify(UserInfo));
             this.props.history.push('/');
