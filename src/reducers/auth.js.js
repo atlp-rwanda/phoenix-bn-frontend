@@ -1,4 +1,4 @@
-import { REGISTRATION_SUCCESS,LOGINSUCESS } from '../actions/actionTypes';
+import { REGISTRATION_SUCCESS, LOGINSUCESS, LOGOUT_SUCCESS } from '../actions/actionTypes';
 
 const initialState = {
   isLoggedIn: false,
@@ -17,6 +17,12 @@ const users = (state = initialState, action) => {
       return state = {
         ...state,
         isLoggedIn: true,
+        userData: action.payload,
+      };
+      case LOGOUT_SUCCESS:
+      return state = {
+        ...state,
+        isLoggedIn: false,
         userData: action.payload,
       };
   }
