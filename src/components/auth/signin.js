@@ -10,7 +10,7 @@ import isValid from '../../helpers/isValid';
 import validate from '../../helpers/formValidator';
 
 export class Signin extends Component {
-        state = {
+        state={
             loading: false,
             userData: {
                 email: '',
@@ -35,10 +35,10 @@ export class Signin extends Component {
             return this.setState({ loading: false })
         } else {
             successToast(response.data.message);
-            const UserInfo = response.data.data.displayData;
+            const UserInfo = response.data.data;
             this.props.dispatch({type:LOGINSUCESS,payload:UserInfo});
             localStorage.setItem('userInfo',JSON.stringify(UserInfo));
-            this.props.history.push('/dashboard');
+            this.props.history.push('/');
             
         }
     }
@@ -62,7 +62,11 @@ export class Signin extends Component {
                         Don't Have Account? 
                       <a to="/login"><u>Sign Up</u></a>
                     </p>
-                    <p className='text-formColor font-bold text-center pt-2'> <Link to="/reset">Get my password</Link></p>
+                    <p id="paragraph" className="text-gray-700 text-center mt-1">
+                       Forgot your password? 
+                      <a to="/login"><u> <Link to="/reset">Reset password</Link></u></a>
+                    </p>
+                   
                     </div>
                 </div>
             </div>

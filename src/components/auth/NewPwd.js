@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TextInput from '../form/TextInput';
 import {httpRequest,successToast} from '../../helpers/httpRequest';
 import {withRouter,useParams} from 'react-router-dom';
+import {newPassword as newPwd} from '../../actions/reset';
 export class newPassword extends Component {
   state={
 loading:false,
@@ -18,22 +19,11 @@ newPassword:{
  handleSubmit=async(e)=>{
      e.preventDefault();
 const token=atob(this.props.match.params.token);
-const {error,response} =await httpRequest('put',`/users/reset-password/${token}`,this.state.newPassword);
-if (error) {
-    this.setState({ loading: false });
-  } else {
-    successToast(response.data.message);
-    this.setState({
-      newPassword: {
-        password: '',
-        confirmPassword: '',
-      },
-    });
-    this.setState({ loading: false });
-    this.props.history.push('/');
-  }
 
-}
+   newPwd(this.state.newPassword,token);
+    this.setState({ loading: false });
+    this.props.history.push('/login');
+  }
   render() {
     return (
       <div>
