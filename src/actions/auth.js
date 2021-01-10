@@ -1,6 +1,5 @@
-import { REGISTRATION_SUCCESS } from './actionTypes';
 import store from '../store';
 
-export const registerUser = async (data) => {
-  await store.dispatch({ type: REGISTRATION_SUCCESS, payload: data });
+export const authenticatedUser = async (data,type) => {
+  await store.dispatch({ type, payload: data });
 };
