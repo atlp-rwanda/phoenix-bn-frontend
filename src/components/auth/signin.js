@@ -10,7 +10,7 @@ import isValid from '../../helpers/isValid';
 import validate from '../../helpers/formValidator';
 
 export class Signin extends Component {
-        state = {
+        state={
             loading: false,
             userData: {
                 email: '',
@@ -60,8 +60,13 @@ export class Signin extends Component {
                     <div>
                     <p id="paragraph" className="text-gray-700 text-center mt-1">
                         Don't Have Account? 
-                      <Link to="/signup"><u>Sign Up</u></Link>
+                      <a to="/login"><u>Sign Up</u></a>
                     </p>
+                    <p id="paragraph" className="text-gray-700 text-center mt-1">
+                       Forgot your password? 
+                      <a to="/login"><u> <Link to="/reset">Reset password</Link></u></a>
+                    </p>
+                   
                     </div>
                 </div>
             </div>
