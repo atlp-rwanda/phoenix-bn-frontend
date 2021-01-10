@@ -20,13 +20,16 @@ const successToast = (message) => {
 const httpRequest = async (method, url, data = null) => {
   try {
     const response = await axios({
+      headers: {
+        'Content-Type': 'application/json',
+      },
       method,
       url,
       data,
     });
     return { response };
   } catch (error) {
-    const errorMessage = (error.response) ? error.response.data.message.error || error.response.data.message : 'Failed Try again later';
+    const errorMessage = (error.response) ? (error.response.data.message.error || error.response.data.message) : 'Failed Try again later';
     errorToast(errorMessage);
     return { error };
   }
