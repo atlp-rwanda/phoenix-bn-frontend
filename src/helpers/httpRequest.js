@@ -17,12 +17,13 @@ const successToast = (message) => {
   }).showToast();
 };
 
-const httpRequest = async (method, url, data = null) => {
+const httpRequest = async (method, url, data = null,headers=null) => {
   try {
     const response = await axios({
       method,
       url,
       data,
+      headers,
     });
     return { response };
   } catch (error) {
