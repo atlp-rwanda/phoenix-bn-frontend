@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import BellIcon from '../icon/bell'
 import UserIcon from '../icon/user'
 import { connect } from 'react-redux'
-import ManagerNav from '../common/navs/manager'
 
 class AuthTopNav extends Component {
     state={
@@ -24,17 +23,15 @@ class AuthTopNav extends Component {
                     </span>
                     
                 </Link>
-                <div id='dynamic-nav'>
-                    {this.props.user.RoleId===3? <ManagerNav />:''}
-                </div>
+                
 
                 <div>
                     <div className='flex space-x-6 mt-2'>
                         <div>
-                            <BellIcon />
+                            <BellIcon color='text-white' />
                         </div>
                         <div className='flex text-sm space-x-2 cursor-pointer' onClick={this.toggleMenu.bind(this)}>
-                            <UserIcon />
+                            <UserIcon color={'text-white'} />
                             <span className='text-white'>{this.props.user.firstName}</span>
                         </div>
                     </div>
@@ -42,7 +39,7 @@ class AuthTopNav extends Component {
             </nav>
             <div  className={'bg-formColor text-white absolute right-6 py-2 px-4 '+this.state.visibility}>
                 <ul>
-                    <li>Plofile</li>
+                    <li>Profile</li>
                     <li>Logout</li>
                 </ul>
             </div>

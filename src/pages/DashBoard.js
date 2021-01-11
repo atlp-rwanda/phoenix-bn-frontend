@@ -1,7 +1,7 @@
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import TopNavigation from '../components/common/AuthTopNav';
+import TopNavigation from '../components/common/TopNav';
 import Users from '../components/allUsers';
 
 export class DashBoard extends Component {

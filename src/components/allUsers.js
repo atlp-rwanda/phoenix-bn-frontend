@@ -10,6 +10,7 @@ export class allUsers extends Component {
         lineManagers: [],
         lineManagerId: "",
         userId: "",
+        assigning:false
     }
     columns = [
         {
@@ -34,7 +35,7 @@ export class allUsers extends Component {
         {
           name: 'Role',
           sortable: true,
-        cell:row => <div>{row.roles['name']}</div>
+        cell:row => <div>{this.state.loading? '' :row.roles['name']}</div>
         },
         {
           name: 'Line Manager',
@@ -65,12 +66,14 @@ export class allUsers extends Component {
     }
     assignUsers = async () => {
         const { lineManagerId, userId } = this.state
+        this.setState({assigning:true});
         const { response } = await httpRequest('put', '/users/manager/assign', { lineManagerId, userId });
         if (response) {
             await this.getAllUsers();
-            this.setState({ ...this.state.modalVisible, modalVisible: false })
+            this.setState({ ...this.state.modalVisible, modalVisible: false ,assigning:false})
             successToast(response.data.message)
         }
+        this.setState({assigning:false});
     }
     handleInput = (e) => {
         const lineManagerId = e.target.value
@@ -114,7 +117,7 @@ export class allUsers extends Component {
                                     return <option value={managers.id} key={managers.id}>{managers.firstName + ' ' + managers.lastName}</option>
                                 })}
                             </select>
-                            <button className='bg-mainGreen p-2 text-sm text-gray-50 rounded' onClick={this.assignUsers}>Finish</button>
+                            <button disabled={this.assigning} className='bg-mainGreen p-2 text-sm text-gray-50 rounded' onClick={this.assignUsers}>{this.state.assigning? 'finishing ...' :'finish'}</button>
                         </div>
                     </div>
                 </div> : ''}
