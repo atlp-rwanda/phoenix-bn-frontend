@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 class TopNav extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -50,6 +51,12 @@ class TopNav extends React.Component {
                   {' '}
                   <Link to="/login" className="inline-block px-6 py-2 text-sm font-bold leading-6 text-center text-white uppercase transition bg-green-400 rounded-full shadow ripple hover:shadow-lg hover:bg-green-500 focus:outline-none">
                     Login
+                  </Link>
+                </li>
+                <li>
+                  {' '}
+                  <Link to="/profile" className="inline-block px-6 py-2 text-sm font-bold leading-6 text-center text-white uppercase transition bg-green-400 rounded-full shadow ripple hover:shadow-lg hover:bg-green-500 focus:outline-none">
+                    Profile
                   </Link>
                 </li>
               </ul>
