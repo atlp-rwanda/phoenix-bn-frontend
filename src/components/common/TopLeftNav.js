@@ -11,7 +11,7 @@ class TopLeftNav extends Component {
         super()
         this.state = {
     visibility:'hidden',
-    isLoggedIn:false
+    isAuthenticated:false
     }}
     toggleMenu(){
         const prop= (this.state.visibility=='hidden')? 'block':'hidden';
@@ -23,7 +23,7 @@ class TopLeftNav extends Component {
         e.preventDefault()
         const { error, response } = await httpRequest('post', '/users/logout', this.state.userData);
         if (error) {
-            return this.setState({ isLoggedIn: false })
+            return this.setState({ isAuthenticated: false })
         } else {
             successToast(response.data.message);
             this.props.dispatch({type:LOGOUT_SUCCESS,payload:' '});
@@ -52,7 +52,7 @@ class TopLeftNav extends Component {
                 </nav>
                 <div  className={'bg-white text-black absolute cursor-pointer py-2 px-4 '+this.state.visibility}>
                     <ul>
-                        <li>Plofile</li>
+                        <li>Profile</li>
                         <li onClick={this.handleLogout}>Logout</li>
                     </ul>
                 </div>

@@ -6,7 +6,7 @@ export class LandingSection extends Component {
   render() {
     return (
       <div>
-      {this.props.auth.isLoggedIn?' ':
+      {this.props.auth.isAuthenticated?' ':
       <div className="w-screen h-screen">
       <div className="w-full h-screen relative">
         <img src={HouseImage} alt="" className="h-full w-full" />

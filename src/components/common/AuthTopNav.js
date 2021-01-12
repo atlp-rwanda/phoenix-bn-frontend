@@ -9,13 +9,13 @@ import { connect } from 'react-redux'
 class AuthTopNav extends Component {
     state={
     visibility:'hidden',
-    isLoggedIn:false
+    isAuthenticated:false
     }
     handleLogout=async(e)=>{
         e.preventDefault()
         const { error, response } = await httpRequest('post', '/users/logout', this.state.userData);
         if (error) {
-            return this.setState({ isLoggedIn: false })
+            return this.setState({ isAuthenticated: false })
         } else {
             successToast(response.data.message);
             this.props.dispatch({type:LOGOUT_SUCCESS,payload:' '});

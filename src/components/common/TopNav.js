@@ -46,7 +46,7 @@ class TopNav extends React.Component {
                 </li>
                 <li>
                   {' '}
-                  {this.props.auth.isLoggedIn?
+                  {this.props.auth.isAuthenticated?
                     <TopLeftNav />:
                     <Link to="/login" className="inline-block px-6 py-2 text-sm font-bold leading-6 text-center text-white uppercase transition bg-green-400 rounded-full shadow ripple hover:shadow-lg hover:bg-green-500 focus:outline-none">
                     Login
@@ -77,7 +77,7 @@ class TopNav extends React.Component {
               </li>
               <li className="hover:bg-gray-200">
                 {' '}
-                {this.props.auth.isLoggedIn?' ':<Link to="/login" className="py-1 px-5 bg-green-500 rounded-full">
+                {this.props.auth.isAuthenticated?' ':<Link to="/login" className="py-1 px-5 bg-green-500 rounded-full">
                   Login
                 </Link>}
               </li>

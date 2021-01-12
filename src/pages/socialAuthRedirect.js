@@ -4,7 +4,7 @@ import Navigation from '../components/common/TopNav';
 import Footer from '../components/common/Footer';
 import { httpRequest } from '../helpers/httpRequest';
 import { authenticatedUser } from '../actions/auth';
-import { LOGINSUCESS} from '../actions/actionTypes';
+import { LOGIN_SUCCESS} from '../actions/actionTypes';
 
 const socialAuth = (props) => {
   const params = useParams();
@@ -13,9 +13,9 @@ const socialAuth = (props) => {
     if (params.token) {
       const { response } = await httpRequest('get', `users/me/${atob(params.token)}`, {});
       if (response) {
-        const UserInfo = response.data.data;
-        await authenticatedUser(UserInfo,LOGINSUCESS);
-        localStorage.setItem('userInfo', JSON.stringify(response.data.data));
+        const UserInfo = response.data;
+        await authenticatedUser(UserInfo,LOGIN_SUCCESS);
+        localStorage.setItem('token', response.data.data.authToken);
         props.history.push('/');
       }
     }
