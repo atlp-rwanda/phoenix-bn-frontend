@@ -1,6 +1,8 @@
 import axios from 'axios';
 import store from '../store';
-import { REGISTER_SUCCESS, REGISTER_FAIL,LOGIN_SUCCESS,LOGIN_FAIL } from './actionTypes';
+import {
+  REGISTER_SUCCESS, REGISTER_FAIL, LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_SUCCESS,
+} from './actionTypes';
 import { successToast, errorToast } from '../helpers/httpRequest';
 
 export const authenticatedUser = async (data, type) => {
@@ -36,28 +38,49 @@ export const register = ({
     });
 };
 
-export const login = ({email, password}) => (dispatch) => {
+export const login = ({ email, password }) => (dispatch) => {
   const config = {
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
   };
   // REQUEST BODY
   const body = { email, password };
   axios
-    .post("/users/login", body, config)
+    .post('/users/login', body, config)
     .then((res) => {
       dispatch({
         type: LOGIN_SUCCESS,
         payload: res.data,
       });
-      console.log(res.data);
       successToast(res.data.message);
     })
     .catch((err) => {
       dispatch({
         type: LOGIN_FAIL,
       });
+      const message = (err.response ? err.response.data.message : err);
+      errorToast(message);
+    });
+};
+
+export const logout = () => (dispatch) => {
+  const token = localStorage.getItem('token');
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+      authorization: token,
+    },
+  };
+
+  axios
+    .post('/users/logout', null, config)
+    .then(() => {
+      dispatch({
+        type: LOGOUT_SUCCESS,
+      });
+    })
+    .catch((err) => {
       const message = (err.response ? err.response.data.message : err);
       errorToast(message);
     });

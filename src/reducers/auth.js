@@ -23,6 +23,7 @@ const users = (state = initialState, action) => {
         userData: action.payload.data,
       };
     case LOGOUT_SUCCESS:
+    localStorage.removeItem("token");
       return state = {
         ...state,
         isAuthenticated: false,

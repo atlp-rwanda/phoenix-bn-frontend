@@ -39,13 +39,15 @@ class AuthTopNav extends Component {
                     </span>
                     
                 </Link>
+                
+
                 <div>
                     <div className='flex space-x-6 mt-2'>
                         <div>
-                            <BellIcon />
+                            <BellIcon color='text-white' />
                         </div>
                         <div className='flex text-sm space-x-2 cursor-pointer' onClick={this.toggleMenu.bind(this)}>
-                            <UserIcon />
+                            <UserIcon color={'text-white'} />
                             <span className='text-white'>{this.props.user.firstName}</span>
                         </div>
                     </div>

@@ -3,8 +3,6 @@ import TextInput from '../form/TextInput'
 import GoogleIcon from '../icon/googleIcon'
 import Facebook from '../icon/facebook'
 import { Link, Redirect ,withRouter} from 'react-router-dom'
-import { httpRequest, successToast } from '../../helpers/httpRequest'
-import { LOGINSUCESS } from '../../actions/actionTypes'
 import {connect} from 'react-redux'
 import isValid from '../../helpers/isValid';
 import validate from '../../helpers/formValidator';
@@ -39,18 +37,7 @@ export class Signin extends Component {
         this.setState({ loading: true }) 
         const {email,password}=this.state.userData;
         this.props.login({email,password})
-
-        // const { error, response } = await httpRequest('post', '/users/login', this.state.userData);
-        // if (error) {
-        //     return this.setState({ loading: false })
-        // } else {
-        //     successToast(response.data.message);
-        //     const UserInfo = response.data.data;
-        //     this.props.dispatch({type:LOGINSUCESS,payload:UserInfo});
-        //     localStorage.setItem('userInfo',JSON.stringify(UserInfo));
-        //     this.props.history.push('/');
-            
-        // }
+ 
     }
     render() {
         if (this.props.isAuthenticated) {

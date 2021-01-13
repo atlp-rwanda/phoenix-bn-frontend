@@ -20,7 +20,7 @@ export default function navGaurd({ component: Component, allowedRoles, ...rest }
       render={(props) => (
         isAuthenticate() === true
           ? <Component {...props} />
-          : <Redirect to="/signup" />
+          : <Redirect to="/login" />
       )}
     />
   );

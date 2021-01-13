@@ -40,23 +40,7 @@ const { firstName, lastName, email, password, confirmPassword }=this.state.userD
     this.setState({ formErrors: {} });
     this.setState({ loading: true });
     this.props.register({ firstName, lastName, email, password, confirmPassword })
-    // const { registered } = this.props.userData;
-    // if(registered===true){
-    //   this.setState({
-    //     userData: {
-    //       firstName: '',
-    //       lastName: '',
-    //       email: '',
-    //       password: '',
-    //       confirmPassword: '',
-    //     },
-    //   });
-    //   this.setState({loading:false})
-    // }else{
-    //   this.setState({ loading: false });
-    // }
-    
-
+   
   };
 
   render() {
