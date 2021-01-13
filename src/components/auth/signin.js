@@ -3,14 +3,14 @@ import TextInput from '../form/TextInput'
 import GoogleIcon from '../icon/googleIcon'
 import Facebook from '../icon/facebook'
 import { Link, Redirect ,withRouter} from 'react-router-dom'
-import { httpRequest, successToast } from '../../helpers/httpRequest'
-import { LOGINSUCESS } from '../../actions/actionTypes'
 import {connect} from 'react-redux'
 import isValid from '../../helpers/isValid';
 import validate from '../../helpers/formValidator';
+import {login} from '../../actions/auth'
+import PropTypes from 'prop-types'
 
 export class Signin extends Component {
-        state = {
+        state={
             loading: false,
             userData: {
                 email: '',
@@ -18,31 +18,31 @@ export class Signin extends Component {
             },
             formErrors: {},
         }
+        static propTypes = {
+            login: PropTypes.func.isRequired,
+            isAuthenticated: PropTypes.bool,
+          };
     handleInput = (e)=> {
         const prop = e.target
         this.setState({ userData: { ...this.state.userData, [prop.name]: e.target.value } })
     }
-    onSubmit = async (e) => {
+    onSubmit =  (e) => {
         e.preventDefault();
+
         const validations = validate('signinForm', ['email', 'password']);
         if (validations.size > 0) {
             return this.setState({ formErrors: validations.errors });
         }
         this.setState({ formErrors: {} });
-        this.setState({ loading: true })
-        const { error, response } = await httpRequest('post', '/users/login', this.state.userData);
-        if (error) {
-            return this.setState({ loading: false })
-        } else {
-            successToast(response.data.message);
-            const UserInfo = response.data.data;
-            this.props.dispatch({type:LOGINSUCESS,payload:UserInfo});
-            localStorage.setItem('userInfo',JSON.stringify(UserInfo));
-            this.props.history.push('/');
-            
-        }
+        this.setState({ loading: true }) 
+        const {email,password}=this.state.userData;
+        this.props.login({email,password})
+ 
     }
     render() {
+        if (this.props.isAuthenticated) {
+            return <Redirect to="/" />;
+          }
         return (
             <div className='bg-white py-7 px-6 w-full md:w-2/6 my-10  mx-auto space-y-5'>
                 <p className='text-formColor font-bold'>Login</p>
@@ -59,21 +59,22 @@ export class Signin extends Component {
                     </div>
                     <div>
                     <p id="paragraph" className="text-gray-700 text-center mt-1">
-                        Don't Have Account? 
-                      <Link to="/signup"><u>Sign Up</u></Link>
+                        Don't Have Account?  
+                        <Link to="signup"> Sign Up</Link>
                     </p>
+                    <p id="paragraph" className="text-gray-700 text-center mt-1">
+                       Forgot your password?  
+                     <Link to="/reset"> Reset password</Link>
+                    </p>
+                   
                     </div>
                 </div>
             </div>
         )
     }
 }
-const mapStateToProps = state => {
-    return { user: state.auth }
-  }
-  const mapDispatchToProps = dispatch => {
-    return {
-      dispatch
-    }
-  }
-export default connect(mapStateToProps,mapDispatchToProps)(withRouter(Signin));
+const mapStateToProps = state=>({
+    isAuthenticated:state.auth.isAuthenticated
+  })
+  export default connect(mapStateToProps,{login})(Signin);
+  
