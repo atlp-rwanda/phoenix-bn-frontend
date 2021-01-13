@@ -1,18 +1,53 @@
 import React, { Component } from 'react';
-import { httpRequest,successToast } from '../helpers/httpRequest'
+import { httpRequest, successToast } from '../helpers/httpRequest'
+import DataTable from 'react-data-table-component';
+import Skeleton from 'react-loading-skeleton';
 export class allUsers extends Component {
     state = {
-        users: '',
+        users: [],
         loading: true,
         modalVisible: false,
         lineManagers: [],
         lineManagerId: "",
-        userId: ""
+        userId: "",
+        assigning:false
     }
+    columns = [
+        {
+          name: 'First Name',
+          selector: 'firstName',
+          sortable: true,
+        }, {
+          name: 'Last Name',
+          selector: 'lastName',
+          sortable: true,
+        },
+        {
+          name: 'Email',
+          selector: 'email',
+          sortable: true,
+        },
+        {
+          name: 'Address',
+          selector: 'officeAddres',
+          sortable: true,
+        },
+        {
+          name: 'Role',
+          sortable: true,
+        cell:row => <div>{this.state.loading? '' :row.roles['name']}</div>
+        },
+        {
+          name: 'Line Manager',
+          selector: 'lineManager.id',
+          sortable: true,
+          cell: row => <div>{row.lineManagerInfo===null ? <button value={row.id} className='text-xs bg-red-500 outline-none p-1 text-gray-100 rounded-sm' onClick={this.ShowPopup}>Assign to Manager</button>  : row.lineManagerInfo['firstName']+' '+row.lineManagerInfo['lastName'] }</div>,
+        },
+      ];
     async componentDidMount() {
         this.getAllUsers();
     }
-    getAllUsers =async ()=>{
+    getAllUsers = async () => {
         const { response } = await httpRequest('get', '/users');
         if (response) {
             this.setState({ ...this.state.users, users: response.data.data, loading: false })
@@ -20,8 +55,7 @@ export class allUsers extends Component {
     }
     ShowPopup = async (e) => {
         const userId = e.target.value;
-        alert(userId);
-        this.setState({ ...this.state, modalVisible: true,userId:userId })
+        this.setState({ ...this.state, modalVisible: true, userId: userId })
         const { response } = await httpRequest('get', '/users/lineManagers');
         if (response) {
             this.setState({ ...this.state.lineManagers, lineManagers: response.data.data })
@@ -31,13 +65,15 @@ export class allUsers extends Component {
         this.setState({ modalVisible: false })
     }
     assignUsers = async () => {
-        const {lineManagerId,userId} = this.state
-        const { response } = await httpRequest('put','/users/manager/assign',{lineManagerId,userId});
-        if(response){
+        const { lineManagerId, userId } = this.state
+        this.setState({assigning:true});
+        const { response } = await httpRequest('put', '/users/manager/assign', { lineManagerId, userId });
+        if (response) {
             await this.getAllUsers();
-            this.setState({ ...this.state.modalVisible, modalVisible: false })
+            this.setState({ ...this.state.modalVisible, modalVisible: false ,assigning:false})
             successToast(response.data.message)
         }
+        this.setState({assigning:false});
     }
     handleInput = (e) => {
         const lineManagerId = e.target.value
@@ -47,42 +83,25 @@ export class allUsers extends Component {
     render() {
         return (
             <div className='w-full'>
-                <div className="w-8/12 p-1 mx-auto space-y-2">
-                    <div className="w-full bg-gray-50">
-                        <div className="p-2">
-                            <h4>List Of All Users</h4>
-                        </div>
-                    </div>
-                    <div id="table" className="p-1">
-                        <table className="w-full border p-1" cellPadding='5'>
-                            <thead className='bg-formColor border text-gray-100'>
-                                <tr className='border'>
-                                    <th className='border'>First Name</th>
-                                    <th className='border'>Last Name</th>
-                                    <th className='border'>Email</th>
-                                    <th className='border'>Address</th>
-                                    <th className='border'>Line Manager</th>
-                                </tr>
-                            </thead>
-                            {this.state.loading === false ?
-                                <tbody>
-                                    {this.state.users.map(userInfo => {
-                                        const { lineManagerInfo } = userInfo
-                                        return <tr className='border' key={userInfo.id}>
-                                            <td className='border'>{userInfo.firstName}</td>
-                                            <td className='border'>{userInfo.lastName}</td>
-                                            <td className='border'>{userInfo.email}</td>
-                                            <td className='border'>{userInfo.officeAddres}</td>
-                                            <td className='border'>{lineManagerInfo == null ? <button value={userInfo.id} className='text-xs bg-red-500 outline-none p-1 text-gray-100 rounded-sm' onClick={this.ShowPopup}>Assign to Manager</button> : lineManagerInfo['firstName'] + ' ' + lineManagerInfo['lastName']}</td>
-                                        </tr>
-                                    })}
-                                </tbody> : <tbody></tbody>}
+                <div className="w-10/12 p-1 mx-auto">
 
-                        </table>
-                    </div>
-
-
+                    {!this.state.loading ?  <DataTable
+                    title="List of all Users"
+                    columns={this.columns}
+                    data={this.state.users}
+                    pagination ={true}
+                     
+                /> :  <div className='w-full space-y-3'>
+                <div className='w-full'>
+                <Skeleton height={30} width={400} count={1}/>
                 </div>
+                <div>
+                <Skeleton height={30} count={7}/>
+                </div>
+               </div> }
+            
+                </div>
+               
                 {this.state.modalVisible === true ? <div className='w-screen h-screen fixed left-0 top-0 pt-40 bg-overLayer'>
                     <div className='w-full md:w-4/12 lg:w-4/12 p-4 bg-gray-50 mx-auto rounded space-y-1'>
                         <div className='w-full p-2 space-y-1'>
@@ -98,7 +117,7 @@ export class allUsers extends Component {
                                     return <option value={managers.id} key={managers.id}>{managers.firstName + ' ' + managers.lastName}</option>
                                 })}
                             </select>
-                            <button className='bg-mainGreen p-2 text-sm text-gray-50 rounded' onClick={this.assignUsers}>Finish</button>
+                            <button disabled={this.assigning} className='bg-mainGreen p-2 text-sm text-gray-50 rounded' onClick={this.assignUsers}>{this.state.assigning? 'finishing ...' :'finish'}</button>
                         </div>
                     </div>
                 </div> : ''}
