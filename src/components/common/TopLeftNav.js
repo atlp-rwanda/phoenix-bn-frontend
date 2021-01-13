@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component,Fragment } from 'react'
 import BellIcon from '../icon/bell'
 import UserIcon from '../icon/user'
 import { connect } from 'react-redux'
@@ -15,9 +15,9 @@ class TopLeftNav extends Component {
     render() {
         return (
             <div>
-                <nav className="flex justify-between w-full z-10  p-3 md:py-3 md:pl-4  md:pr-6 h-full border-b border-gray-100">
+                <nav className="flex justify-between w-full z-10  p-3 md:py-3 md:pl-4  md:pr-6 h-full">
                     <div>
-                        <div className='flex space-x-6 mt-2'>
+                        <div className='flex space-x-9 mt-2'>
                             <div>
                                 <BellIcon />
                             </div>
@@ -30,7 +30,7 @@ class TopLeftNav extends Component {
                 </nav>
                 <div  className={'bg-white text-black absolute cursor-pointer py-2 px-4 '+this.state.visibility}>
                     <ul>
-                        <li>Plofile</li>
+                        <li>Profile</li>
                         <li>Logout</li>
                     </ul>
                 </div>

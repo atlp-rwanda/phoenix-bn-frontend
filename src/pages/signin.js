@@ -7,7 +7,7 @@ export class signin extends Component {
         return (
             <div className='w-screen overflow-hidden'>
             <Navigation/>
-            <div className='main p-4'>
+            <div className='main pt-14'>
                 <SigninComponent />
             </div> 
             <Footer />
