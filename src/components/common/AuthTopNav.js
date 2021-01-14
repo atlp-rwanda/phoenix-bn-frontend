@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import { httpRequest, successToast } from '../../helpers/httpRequest'
 import { Link } from 'react-router-dom'
+import { LOGOUT_SUCCESS } from '../../actions/actionTypes'
 import BellIcon from '../icon/bell'
 import UserIcon from '../icon/user'
 import { connect } from 'react-redux'
@@ -7,6 +9,20 @@ import { connect } from 'react-redux'
 class AuthTopNav extends Component {
     state={
     visibility:'hidden',
+    isAuthenticated:false
+    }
+    handleLogout=async(e)=>{
+        e.preventDefault()
+        const { error, response } = await httpRequest('post', '/users/logout', this.state.userData);
+        if (error) {
+            return this.setState({ isAuthenticated: false })
+        } else {
+            successToast(response.data.message);
+            this.props.dispatch({type:LOGOUT_SUCCESS,payload:' '});
+            localStorage.removeItem('userInfo');
+            this.props.history.push('/');
+        }
+       
     }
     toggleMenu(){
         const prop= (this.state.visibility=='hidden')? 'block':'hidden';
@@ -39,8 +55,8 @@ class AuthTopNav extends Component {
             </nav>
             <div  className={'bg-formColor text-white absolute right-6 py-2 px-4 '+this.state.visibility}>
                 <ul>
-                    <li>Profile</li>
-                    <li>Logout</li>
+                    <li>Plofile</li>
+                    <li onClick={this.handleLogout}>Logout</li>
                 </ul>
             </div>
         </div>
@@ -52,5 +68,10 @@ class AuthTopNav extends Component {
 const mapStateToProps = state=>{
     return { user:state.auth.userData}
 }
+const mapDispatchToProps = dispatch => {
+    return {
+      dispatch
+    }
+  }
 
-export default connect(mapStateToProps)(AuthTopNav);
+export default connect(mapStateToProps,mapDispatchToProps)(AuthTopNav);

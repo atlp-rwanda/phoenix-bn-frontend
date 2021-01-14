@@ -1,15 +1,26 @@
-import React, { Component,Fragment } from 'react'
+import React, { Component } from 'react'
 import BellIcon from '../icon/bell'
 import UserIcon from '../icon/user'
 import { connect } from 'react-redux'
+import { logout } from '../../actions/auth'
+
 
 class TopLeftNav extends Component {
-    state={
+    constructor() {
+        super()
+        this.state = {
     visibility:'hidden',
-    }
+    isAuthenticated:false
+    }}
     toggleMenu(){
         const prop= (this.state.visibility=='hidden')? 'block':'hidden';
         this.setState({...this.state,visibility:prop})
+
+    }
+
+    handleLogout = (e)=>{
+        e.preventDefault()
+        this.props.logout();
     }
     
     render() {
@@ -31,7 +42,7 @@ class TopLeftNav extends Component {
                 <div  className={'bg-white text-black absolute cursor-pointer py-2 px-4 '+this.state.visibility}>
                     <ul>
                         <li>Profile</li>
-                        <li>Logout</li>
+                        <li onClick={this.handleLogout}>Logout</li>
                     </ul>
                 </div>
             </div>
@@ -41,7 +52,10 @@ class TopLeftNav extends Component {
 }
 
 const mapStateToProps = state=>{
-    return { user:state.auth.userData}
+    return { user:state.auth.userData
+    }
 }
 
-export default connect(mapStateToProps)(TopLeftNav);
+
+
+export default connect(mapStateToProps,{logout})(TopLeftNav);

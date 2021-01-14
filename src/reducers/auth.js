@@ -1,23 +1,38 @@
-import { REGISTRATION_SUCCESS,LOGINSUCESS } from '../actions/actionTypes';
+import {
+  REGISTER_SUCCESS, REGISTER_FAIL, LOGIN_SUCCESS, LOGOUT_SUCCESS,
+} from '../actions/actionTypes';
 
 const initialState = {
-  isLoggedIn: false,
+  isAuthenticated: false,
+  isLoading:false,
   userData: {},
 };
 
 const users = (state = initialState, action) => {
   switch (action.type) {
-    case REGISTRATION_SUCCESS:
+    case REGISTER_SUCCESS:
       return state = {
         ...state,
-        isLoggedIn: true,
-        userData: action.payload,
+        isAuthenticated: true,
       };
-    case LOGINSUCESS:
+    case LOGIN_SUCCESS:
+    localStorage.setItem("token", action.payload.data.authToken);
       return state = {
         ...state,
-        isLoggedIn: true,
-        userData: action.payload,
+        isAuthenticated: true,
+        userData: action.payload.data,
+      };
+    case LOGOUT_SUCCESS:
+    localStorage.removeItem("token");
+      return state = {
+        ...state,
+        isAuthenticated: false,
+        userData: {},
+      };
+    case REGISTER_FAIL:
+      return state = {
+        ...state,
+        isAuthenticated: false,
       };
   }
   return state;

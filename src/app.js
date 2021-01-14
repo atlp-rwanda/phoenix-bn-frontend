@@ -12,6 +12,7 @@ import signupPage from './pages/signup';
 import signinPage from './pages/signin';
 import ProtectedRoute from './middlewares/navGaurd';
 import Dashboard from './pages/DashBoard';
+import Accomodations from './pages/accomodations'
 
 const App = () => (
   <Router>
@@ -26,6 +27,7 @@ const App = () => (
           <Route exact path="/socialAuth/failed/:action" component={socialAuth} />
           <Route exact path="/socialAuth/success/:token" component={socialAuth} />
           <ProtectedRoute allowedRoles={[1, 2, 3, 4, 5]} path="/dashboard" component={Dashboard} />
+          <ProtectedRoute allowedRoles={[1, 2, 3, 4, 5]} path="/accomodation" component={Accomodations} />
         </Switch>
       </Provider>
     </>

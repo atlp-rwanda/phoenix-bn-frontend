@@ -3,9 +3,9 @@ import { Route, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 export default function navGaurd({ component: Component, allowedRoles, ...rest }) {
-  const { isLoggedIn, userData } = useSelector((store) => store.auth);
-  const isAuthenticated = () => {
-    if (isLoggedIn === true) {
+  const { isAuthenticated, userData } = useSelector((store) => store.auth);
+  const isAuthenticate = () => {
+    if (isAuthenticated === true) {
       const { RoleId } = userData;
       if (allowedRoles.indexOf(RoleId) < 0) {
         return false;
@@ -18,7 +18,7 @@ export default function navGaurd({ component: Component, allowedRoles, ...rest }
     <Route
       {...rest}
       render={(props) => (
-        isAuthenticated() === true
+        isAuthenticate() === true
           ? <Component {...props} />
           : <Redirect to="/login" />
       )}

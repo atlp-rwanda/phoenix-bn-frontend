@@ -3,11 +3,11 @@ import { connect } from 'react-redux'
 import TextInput from '../form/TextInput';
 import GoogleIcon from '../icon/googleIcon';
 import Facebook from '../icon/facebook';
-import { httpRequest, successToast } from '../../helpers/httpRequest';
+import { register } from '../../actions/auth';
 import isValid from '../../helpers/isValid';
 import validate from '../../helpers/formValidator';
-import { authenticatedUser } from '../../actions/auth.js'
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 export class signup extends Component {
     state = {
@@ -21,38 +21,33 @@ export class signup extends Component {
       },
       formErrors: {},
     };
+    static propTypes = {
+      register: PropTypes.func.isRequired,
+      isAuthenticated: PropTypes.bool,
+    };
 
   handleInput=(e)=> {
     const prop = e.target;
     this.setState({ userData: { ...this.state.userData, [prop.name]: e.target.value } });
   }
-  onSubmit = async (e) => {
+  onSubmit = (e) => {
     e.preventDefault();
     const validations = validate('signupForm', ['firstName', 'lastName', 'email', 'password', 'confirmPassword']);
     if (validations.size > 0) {
       return this.setState({ formErrors: validations.errors });
     }
+const { firstName, lastName, email, password, confirmPassword }=this.state.userData;
     this.setState({ formErrors: {} });
     this.setState({ loading: true });
-    const { error, response } = await httpRequest('post', '/users/signup', this.state.userData);
-    if (error) {
-      this.setState({ loading: false });
-    } else {
-      successToast(response.data.message);
-      this.setState({
-        userData: {
-          firstName: '',
-          lastName: '',
-          email: '',
-          password: '',
-          confirmPassword: '',
-        },
-      });
-      this.setState({ loading: false });
-    }
+    this.props.register({ firstName, lastName, email, password, confirmPassword })
+   
   };
 
   render() {
+    if (this.props.isAuthenticated) {
+      return <Redirect to="/" />;
+    }
+
     return (
       <div className="bg-white py-7 px-6 w-full md:w-2/6 mx-auto space-y-5">
         <p className="text-formColor font-bold">CREATE ACCOUNT</p>
@@ -83,6 +78,6 @@ export class signup extends Component {
   }
 }
 const mapStateToProps = state=>({
-  isLoggedIn:state.isLoggedIn
+  isAuthenticated:state.auth.isAuthenticated
 })
-export default connect(mapStateToProps,{authenticatedUser})(signup);
+export default connect(mapStateToProps,{register})(signup);
