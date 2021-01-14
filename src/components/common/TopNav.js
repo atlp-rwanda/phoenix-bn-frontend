@@ -43,7 +43,7 @@ class TopNav extends React.Component {
                   <Link to="/about" className="py-1 px-5 hover:bg-gray-200 rounded-full">About</Link>
                 </li>
                 <li>
-                  <Link to="/login" className="py-1 px-5 hover:bg-gray-200 rounded-full">Accomodation</Link>
+                  <Link to="/accomodation" className="py-1 px-5 hover:bg-gray-200 rounded-full">Accomodation</Link>
                 </li>
                 <li>
                   <Link to="/help" className="py-1 px-5 hover:bg-gray-200 rounded-full">Help</Link>
