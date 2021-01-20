@@ -5,26 +5,84 @@ export class Profile extends Component {
 
     render() {
         return (
-            <div className="bg-white rounded-lg md:flex p-6 border-3 m-5 md:mx-56 mt-20 pl-12">
-                <img className="mx-auto rounded-full h-16 w-16 md:h-24 md:w-24 md:mx-0 md:mr-6" src="../images/image.jpg" alt="" />
-                <div className="pr-11">
-                    <h2 className=" flex space-between text-sm"> <div className=" font-medium">Names:</div> <input type="text" class="w-full border-2 border-gray-200 p-3 rounded outline-none focus:border-purple-500"></input> </h2>
-                    <div className="text-sm flex"><div className=" font-medium">Language:</div> <div className=" pl-1"><input type="text" class="w-full border-2 border-gray-200 p-3 rounded outline-none focus:border-purple-500"></input></div></div>
-                    <div className="text-sm flex"><div className=" font-medium">Office Address:</div> <input type="text" class="w-full border-2 border-gray-200 p-3 rounded outline-none focus:border-purple-500"></input></div>
-                    <div className="text-sm flex"><div className=" font-medium">Manager:</div> <input type="text" class="w-full border-2 border-gray-200 p-3 rounded outline-none focus:border-purple-500"></input></div>
-                    <div className="text-sm flex"><div className=" font-medium">Email:</div> <input type="text" class="w-full border-2 border-gray-200 p-3 rounded outline-none focus:border-purple-500"></input></div>
+
+            <div className="flex justify-center">
+                <div className="max-w-md w-full lg:flex mt-20">
+
+                    <div className="border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+
+                        <div className="flex items-center ">
+                            <div className="text-sm">
+
+                                <div className=" pl-5 ">
+                                    <div className="text-sm flex "><div className=" font-normal   text-gray-600 font-medium text-base">First name:</div>
+
+                                        <div className="mb-3 pt-0 ml-2">
+                                            <input type="text" placeholder="First name" className="px-1 py-1 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm  border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 w-full" />
+                                        </div>
+
+                                    </div>
+
+                                    <div className="text-sm flex "><div className=" font-normal   text-gray-600 font-medium text-base">Last name:</div>
+
+                                        <div className="mb-3 pt-0 ml-3">
+                                            <input type="text" placeholder="Last name" className="px-1 py-1 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 w-full" />
+                                        </div>
+
+                                    </div>
+
+                                    <div className="text-sm flex "><div className=" font-normal   text-gray-600 font-medium text-base">Language:</div>
+
+                                        <div className="mb-3 pt-0 ml-4">
+                                            <input type="text" placeholder="Language" className="px-1 py-1 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 w-full" />
+                                        </div>
+
+                                    </div>
+                                    <div className="text-sm flex "><div className=" font-normal   text-gray-600 font-medium text-base">Manager:</div>
+
+                                        <div className="mb-3 pt-0 ml-5">
+                                            <input type="text" placeholder="Manager" className="px-1 py-1 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 w-full" />
+                                        </div>
+
+                                    </div>
+
+
+                                    <div className="text-sm flex "><div className=" font-normal   text-gray-600 font-medium text-base">Email:</div>
+
+                                        <div className="mb-3 pt-0 ml-12">
+                                            <input type="text" placeholder="Email" className="px-1 py-1 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 w-full" />
+                                        </div>
+
+                                    </div>
+
+                                    <div className="text-sm flex "><div className=" font-normal   text-gray-600 font-medium text-base">Image:</div>
+
+                                        <div className="mb-3 pt-0 ml-10 w-10">
+                                            <input type="file" name="fileToUpload" id="fileToUpload" placeholder="Email" />
+                                        </div>
+
+                                    </div>
+
+
+
+                                </div>
+
+                                <button className=" ml-20 mt-2 bg-gray-200 hover:bg-gray-300 font-medium py-1 px-2 rounded inline-flex items-center">
+                                    <Link to="/profile/edit">
+                                        <span className="font-normal text-gray-700 text-sm">Update Profile</span>
+                                    </Link>
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
                 </div>
-                <div className="inline-flex items-center">
-                    <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-medium py-1 px-2 rounded inline-flex items-center">
-                        <Link to="/profile/edit">
-                            <span>Update Profile</span>
-                        </Link>
-                    </button>
-                </div>
+
             </div>
-
-
-
         )
     }
 }
