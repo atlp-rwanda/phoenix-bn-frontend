@@ -4,39 +4,75 @@ import { Link } from 'react-router-dom';
 export class Profile extends Component {
 
     render() {
+
+        const rowClass =
+            "flex flex-col sm:flex-row justify-between items-center sm:items-start py-3 border-t border-gray-300 last:border-none"
+        const leftClass = "w-full sm:w-1/3 font-medium text-center sm:text-left font-normal text-gray-600 text-sm"
+        const rightClass = "flex-1 text-center sm:text-left font-normal text-gray-600 text-sm"
+
         return (
 
-            <div className="flex justify-center">
-                <div className="max-w-md w-full lg:flex mt-20">
+            <div className=" flex justify-center mt-16 ">
 
-                    <div className="border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+                <div className="rounded overflow-hidden shadow-lg my-2 w-full md:w-5/12  bg-white ">
 
-                        <div className="flex items-center ">
-                            <img className="w-24 h-24 rounded-full mr-4" src="https://pbs.twimg.com/profile_images/885868801232961537/b1F6H4KC_400x400.jpg" alt="Avatar of Jonathan Reinink" />
-                            <div className="text-sm">
-                                <h2 className=" flex space-between text-sm"><div className=" pl-1 font-normal   text-gray-700 text-xl">Ukundimana</div> <div className=" pl-1 font-normal   text-gray-700 text-xl"> Faustin</div> </h2>
-                                <div className=" pl-5 ">
-                                    <div className="text-sm flex"><div className=" font-normal   text-gray-600 font-medium text-xs">Language:</div> <div className=" pl-1 font-normal   text-gray-600 text-xs">English</div></div>
-                                    <div className="text-sm flex"><div className=" font-normal   text-gray-600 font-medium text-xs"> Address:</div> <div className=" pl-1 font-normal   text-gray-600 text-xs">Kicukiro, Kigali</div></div>
-                                    <div className="text-sm flex"><div className=" font-normal   text-gray-600 font-medium text-xs">Manager:</div> <div className=" pl-1 font-normal   text-gray-600 text-xs">Muhire</div></div>
-                                    <div className="text-sm flex"><div className=" font-normal   text-gray-600 font-medium text-xs">Email:</div> <div className=" pl-1 font-normal   text-gray-600 text-xs">fukundimana@gmail.com</div></div>
-                                </div>
-
-                                <button className=" ml-10 mt-2 bg-gray-200 hover:bg-gray-300 font-medium py-1 px-2 rounded inline-flex items-center">
-                                    <Link to="/profile/edit">
-                                        <span className="font-normal text-gray-700 text-sm">Change Profile</span>
-                                    </Link>
-                                </button>
-
-                            </div>
-
-                        </div>
-
+                    <div className="flex justify-center mt-5">
+                        <img className=" w-44 h-44 rounded-full " src="https://pbs.twimg.com/profile_images/885868801232961537/b1F6H4KC_400x400.jpg" alt="Sunset in the mountains " />
                     </div>
 
+                    <div className="px-6 py-4 w-full">
+                        <div className="w-full">
+                            <h3 className="font-normal text-center text-gray-600 text-xl">User Details</h3>
+                            <div className="mt-4">
+                                <div className={rowClass}>
+                                    <span className={leftClass}>First name</span>
+                                    <span className={rightClass}>Ukundimana</span>
+                                </div>
+                                <div className={rowClass}>
+                                    <span className={leftClass}>Last name</span>
+                                    <span className={rightClass}>Faustin</span>
+                                </div>
+                                <div className={rowClass}>
+                                    <span className={leftClass}>Preferred Language</span>
+                                    <span className={rightClass}>English</span>
+                                </div>
+                                <div className={rowClass}>
+                                    <span className={leftClass}>Office Address</span>
+                                    <span className={rightClass}>Kicukiro, Kigali</span>
+                                </div>
+                                <div className={rowClass}>
+                                    <span className={leftClass}>Role</span>
+                                    <span className={rightClass}>requester</span>
+                                </div>
+
+                                <div className={rowClass}>
+                                    <span className={leftClass}>Manager</span>
+                                    <span className={rightClass}>Muhire</span>
+                                </div>
+                                <div className={rowClass}>
+                                    <span className={leftClass}>Email</span>
+                                    <span className={rightClass}>fukundimana@gmail.com</span>
+                                </div>
+
+                                <div className="flex justify-center">
+
+                                    <button className="bg-white hover:bg-gray-100  py-1 w-full border border-gray-400 rounded shadow font-normal text-gray-600 text-sm">
+                                        <Link to="/profile/edit">
+                                            Change Profile
+                                        </Link>
+                                    </button>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
+
+
             </div>
+
         )
     }
 }

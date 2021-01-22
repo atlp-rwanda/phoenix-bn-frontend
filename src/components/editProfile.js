@@ -4,85 +4,99 @@ import { Link } from 'react-router-dom';
 export class Profile extends Component {
 
     render() {
+
+        const rowClass =
+            "flex flex-col sm:flex-row justify-between items-center sm:items-start py-3 border-t border-gray-300 last:border-none"
+        const leftClass = "w-full sm:w-1/3 font-medium text-center sm:text-left font-normal text-gray-600 text-sm"
+        const rightClass = "flex-1 text-center sm:text-left font-normal text-gray-600 text-sm"
+
         return (
 
-            <div className="flex justify-center">
-                <div className="max-w-md w-full lg:flex mt-20">
+            <div className=" flex justify-center mt-16 ">
 
-                    <div className="border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-
-                        <div className="flex items-center ">
-                            <div className="text-sm">
-
-                                <div className=" pl-5 ">
-                                    <div className="text-sm flex "><div className=" font-normal   text-gray-600 font-medium text-base">First name:</div>
-
-                                        <div className="mb-3 pt-0 ml-2">
-                                            <input type="text" placeholder="First name" className="px-1 py-1 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm  border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 w-full" />
-                                        </div>
-
+                <div className="rounded overflow-hidden shadow-lg my-2 w-full md:w-5/12  bg-white ">
+                    <div className="px-6 py-4 w-full">
+                        <div className="w-full">
+                            <div className="mt-4">
+                                <div class="mb-3">
+                                    <label class="font-medium text-left text-sm mb-2 text-gray-600 ">First name</label>
+                                    <div>
+                                        <input class="w-full px-1 py-1 mb-1 border-2  border-gray-400 rounded  focus:outline-none focus:border-indigo-500 transition-colors" placeholder="First name" type="text" />
                                     </div>
-
-                                    <div className="text-sm flex "><div className=" font-normal   text-gray-600 font-medium text-base">Last name:</div>
-
-                                        <div className="mb-3 pt-0 ml-3">
-                                            <input type="text" placeholder="Last name" className="px-1 py-1 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 w-full" />
-                                        </div>
-
-                                    </div>
-
-                                    <div className="text-sm flex "><div className=" font-normal   text-gray-600 font-medium text-base">Language:</div>
-
-                                        <div className="mb-3 pt-0 ml-4">
-                                            <input type="text" placeholder="Language" className="px-1 py-1 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 w-full" />
-                                        </div>
-
-                                    </div>
-                                    <div className="text-sm flex "><div className=" font-normal   text-gray-600 font-medium text-base">Manager:</div>
-
-                                        <div className="mb-3 pt-0 ml-5">
-                                            <input type="text" placeholder="Manager" className="px-1 py-1 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 w-full" />
-                                        </div>
-
-                                    </div>
-
-
-                                    <div className="text-sm flex "><div className=" font-normal   text-gray-600 font-medium text-base">Email:</div>
-
-                                        <div className="mb-3 pt-0 ml-12">
-                                            <input type="text" placeholder="Email" className="px-1 py-1 placeholder-gray-400 text-gray-700 relative bg-white bg-white rounded text-sm border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 w-full" />
-                                        </div>
-
-                                    </div>
-
-                                    <div className="text-sm flex "><div className=" font-normal   text-gray-600 font-medium text-base">Image:</div>
-
-                                        <div className="mb-3 pt-0 ml-10 w-10">
-                                            <input type="file" name="fileToUpload" id="fileToUpload" placeholder="Email" />
-                                        </div>
-
-                                    </div>
-
-
-
                                 </div>
 
-                                <button className=" ml-20 mt-2 bg-gray-200 hover:bg-gray-300 font-medium py-1 px-2 rounded inline-flex items-center">
-                                    <Link to="/profile/edit">
-                                        <span className="font-normal text-gray-700 text-sm">Update Profile</span>
-                                    </Link>
-                                </button>
+                                <div class="mb-3">
+                                    <label class="font-medium text-left text-sm mb-2 text-gray-600">Last name</label>
+                                    <div>
+                                        <input class="w-full px-1 py-1 mb-1 border-2  border-gray-400 rounded  focus:outline-none focus:border-indigo-500 transition-colors" placeholder="Last name" type="text" />
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="font-medium text-left text-sm mb-2 text-gray-600">Preferred Language</label>
+                                    <div>
+                                        <input class="w-full px-1 py-1 mb-1 border-2  border-gray-400 rounded  focus:outline-none focus:border-indigo-500 transition-colors" placeholder="Preferred Language" type="text" />
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="font-medium text-left text-sm mb-2 text-gray-600">Office Address</label>
+                                    <div>
+                                        <input class="w-full px-1 py-1 mb-1 border-2  border-gray-400 rounded focus:outline-none focus:border-indigo-500 transition-colors" placeholder="Office Address" type="text" />
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="font-medium text-left text-sm mb-2 text-gray-600">Manager</label>
+                                    <div>
+                                        <input class="w-full px-1 py-1 mb-1 border-2  border-gray-400 rounded focus:outline-none focus:border-indigo-500 transition-colors" placeholder="Manager" type="text" />
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="font-medium text-left text-sm mb-2 text-gray-600">Email</label>
+                                    <div>
+                                        <input class="w-full px-1 py-1 mb-1 border-2  border-gray-400 rounded  focus:outline-none focus:border-indigo-500 transition-colors" placeholder="Email" type="text" />
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="font-medium text-left text-sm mb-2 text-gray-600">Role</label>
+                                    <div>
+                                        <input class="w-full px-1 py-1 mb-1 border-2 border-gray-400 rounded focus:outline-none focus:border-indigo-500 transition-colors" placeholder="Role" type="text" />
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="font-medium text-left text-sm mb-2 text-gray-600">Profile Picture</label>
+                                    <div>
+                                        <input type="file"
+                                            id="avatar" name="avatar"
+                                            accept="image/png, image/jpeg"></input>
+                                    </div>
+                                </div>
+
+
+
+
+                                <div className="flex justify-center">
+                                    <button className="bg-white hover:bg-gray-100 px-1 py-1.5 w-full border-2 border-gray-400 rounded shadow font-normal text-gray-600 text-sm">
+                                        <Link to="/profile/edit">
+                                            Update Profile
+                                        </Link>
+                                    </button>
+                                </div>
 
                             </div>
-
                         </div>
-
                     </div>
-
 
                 </div>
 
+
             </div>
+
+
+
         )
     }
 }
