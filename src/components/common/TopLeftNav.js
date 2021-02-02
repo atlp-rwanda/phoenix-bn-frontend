@@ -1,17 +1,18 @@
-import React, { Component,Fragment } from 'react'
+import React, { Component, Fragment } from 'react'
 import BellIcon from '../icon/bell'
 import UserIcon from '../icon/user'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 class TopLeftNav extends Component {
-    state={
-    visibility:'hidden',
+    state = {
+        visibility: 'hidden',
     }
-    toggleMenu(){
-        const prop= (this.state.visibility=='hidden')? 'block':'hidden';
-        this.setState({...this.state,visibility:prop})
+    toggleMenu() {
+        const prop = (this.state.visibility == 'hidden') ? 'block' : 'hidden';
+        this.setState({ ...this.state, visibility: prop })
     }
-    
+
     render() {
         return (
             <div>
@@ -28,20 +29,20 @@ class TopLeftNav extends Component {
                         </div>
                     </div>
                 </nav>
-                <div  className={'bg-white text-black absolute cursor-pointer py-2 px-4 '+this.state.visibility}>
+                <div className={'bg-white text-black absolute cursor-pointer py-2 px-4 ' + this.state.visibility}>
                     <ul>
-                        <li>Profile</li>
+                        <li><Link to='/profile'>Profile</Link></li>
                         <li>Logout</li>
                     </ul>
                 </div>
             </div>
         )
     }
-    
+
 }
 
-const mapStateToProps = state=>{
-    return { user:state.auth.userData}
+const mapStateToProps = state => {
+    return { user: state.auth.userData }
 }
 
 export default connect(mapStateToProps)(TopLeftNav);
