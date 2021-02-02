@@ -10,6 +10,7 @@ import store from './store';
 import aboutPage from './pages/About';
 import signupPage from './pages/signup';
 import signinPage from './pages/signin';
+import CreateAccommodationPage from './pages/CreateAccommodation';
 import ProtectedRoute from './middlewares/navGaurd';
 import Dashboard from './pages/DashBoard';
 
@@ -22,6 +23,7 @@ const App = () => (
           <Route exact path="/help" component={helpPage} />
           <Route exact path="/about" component={aboutPage} />
           <Route exact path="/signup" component={signupPage} />
+          <Route exact path="/accommodation" component={CreateAccommodationPage } />
           <Route exact path='/login' component={signinPage} />
           <Route exact path="/socialAuth/failed/:action" component={socialAuth} />
           <Route exact path="/socialAuth/success/:token" component={socialAuth} />
