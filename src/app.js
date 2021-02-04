@@ -7,6 +7,8 @@ import landingPage from './pages/LandingPage';
 import socialAuth from './pages/socialAuthRedirect';
 import helpPage from './pages/Help';
 import store from './store';
+import Footer from './components/common/Footer';
+import profilePage from './pages/Profile';
 import aboutPage from './pages/About';
 import signupPage from './pages/signup';
 import signinPage from './pages/signin';
@@ -23,6 +25,7 @@ const App = () => (
           <Route exact path="/about" component={aboutPage} />
           <Route exact path="/signup" component={signupPage} />
           <Route exact path='/login' component={signinPage} />
+          <Route exact path="/profile" component={profilePage} />
           <Route exact path="/socialAuth/failed/:action" component={socialAuth} />
           <Route exact path="/socialAuth/success/:token" component={socialAuth} />
           <ProtectedRoute allowedRoles={[1, 2, 3, 4, 5]} path="/dashboard" component={Dashboard} />

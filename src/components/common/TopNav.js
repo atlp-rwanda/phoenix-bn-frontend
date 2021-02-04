@@ -9,21 +9,22 @@ class TopNav extends React.Component {
     isHidden: true,
   };
 
- componentDidMount(){
-   window.addEventListener('resize',()=>{
-     const width = window.innerWidth;
-     this.setState({width:width})
-     setScreen(width);
-   })
-   window.addEventListener('load',()=>{setScreen
-    const width = window.innerWidth;
-    this.setState({width:width})
-    setScreen(width);
-  })
- }
+  componentDidMount() {
+    window.addEventListener('resize', () => {
+      const width = window.innerWidth;
+      this.setState({ width: width })
+      setScreen(width);
+    })
+    window.addEventListener('load', () => {
+      setScreen
+      const width = window.innerWidth;
+      this.setState({ width: width })
+      setScreen(width);
+    })
+  }
 
   render() {
-    const { isHidden} = this.state;
+    const { isHidden } = this.state;
     const { width } = this.props.config
     return (
       <div className="absolute w-full h-auto z-10">
@@ -79,7 +80,7 @@ class TopNav extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { auth: state.auth,config:state.config };
+  return { auth: state.auth, config: state.config };
 }
 
 export default connect(mapStateToProps)(TopNav);

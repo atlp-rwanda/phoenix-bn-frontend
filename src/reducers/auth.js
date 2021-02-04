@@ -1,4 +1,4 @@
-import { REGISTRATION_SUCCESS,LOGINSUCESS } from '../actions/actionTypes';
+import { REGISTRATION_SUCCESS, LOGINSUCESS } from '../actions/actionTypes';
 
 const initialState = {
   isLoggedIn: false,
